@@ -8,7 +8,7 @@ public class CreateMap : MonoBehaviour
 
     public Stations stations;
 
-    private int dist = 2;
+    private float dist = 2.3f;
 
     // Start is called before the first frame update
     void Start()

@@ -8,8 +8,9 @@ public class SortLayer : MonoBehaviour
     void Start()
     { 
     
-        GetComponent<Renderer>().sortingLayerID = transform.parent.GetComponent<Renderer>().sortingLayerID;
-        
+        //GetComponent<MeshRenderer>().sortingLayerID = 3;
+        GetComponent<MeshRenderer>().sortingLayerName = "Estaciones";
+
     }
 
     // Update is called once per frame
