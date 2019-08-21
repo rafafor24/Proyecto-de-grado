@@ -14,6 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Instrucciones!
   sentences:
-  - 1
-  - 2
-  - 3
+  - "Para este minijuego, imagina que te encuentras haciendo la fila para entrar a
+    la estaci\xF3n de transmilenio."
+  - El juego consiste en que tomes diferentes decisiones, dichas desiciones pueden
+    afectarte o favorecerte dependiendo de lo que escojas y lo que decida otro jugador
+  - 'Tienes 2 opciones: colarte o hacer la fila correctamente. El otro jugador tiene
+    las mismas opciones.'
+  - Si te cuelas y el otro jugador hace la fila solo tardaras 1 minuto esperando y
+    el otro jugador 10.
+  - Si haces la fila y el otro jugador se cuela tardaras 10 minutos esperando y el
+    otro jugador solo 1 minuto
+  - Si ambos jugadores se cuelan tardaran 6 minutos cada uno y si ambos jugadores
+    hacen la fila se tardaran 3 minutos esperando.
