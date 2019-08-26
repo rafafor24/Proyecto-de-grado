@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Beam
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 1884092623
+    locked: 0
+  - name: Vias
+    uniqueID: 67087787
     locked: 0
   - name: Estaciones
     uniqueID: 1866139489
