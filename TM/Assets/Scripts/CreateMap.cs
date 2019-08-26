@@ -6,17 +6,32 @@ public class CreateMap : MonoBehaviour
 {
     public GameObject prefab;
 
+    public GameObject prefabVia;
+
     public Stations stations;
 
-    private float dist = 2.3f;
+    public int dist;
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < stations.x; i++)
         {
-            GameObject newObject= Instantiate(prefab, new Vector3(stations.x[i]*dist , stations.y[(i)]*dist, 0), Quaternion.identity);
-            newObject.GetComponentInChildren<TextMesh>().text = stations.stationsNames[i];
-        }
+            for (int j = 0; j < stations.y; j++)
+            {
+                GameObject newObject = Instantiate(prefab, new Vector3(i * dist, j * dist, 0), Quaternion.identity);
+                newObject.GetComponentInChildren<TextMesh>().text = stations.stationsNames[i];
+                if (i != (stations.x-1))
+                {
+                Instantiate(prefabVia, new Vector3(4+(i * dist), j * dist, 0), Quaternion.identity);               
+                }
+                if (j != (stations.y - 1))
+                {
+                    GameObject prefY = Instantiate(prefabVia, new Vector3(i * dist, 4 + (j * dist), 0), Quaternion.identity);
+                    prefY.transform.Rotate(0, 0, 90, Space.Self);
+                }
+
+                }
+            }
     }    
 }
