@@ -32,7 +32,7 @@ public class MoverJugador : MonoBehaviour
             float step = speed * Time.deltaTime;
 
             jugador.transform.position = Vector3.MoveTowards(jugador.transform.position, this.transform.position, step);
-            Debug.Log(jugador.transform.position);
+            
             if (Vector3.Distance(jugador.transform.position, transform.position) < 0.001f)
             {
                 jugador.GetComponent<MoveCharacter>().ChangeTrigger(QUIETO);
@@ -44,7 +44,7 @@ public class MoverJugador : MonoBehaviour
     public void OnMouseDown()
     {
 
-        moving = true;
+        
         if(Mathf.Sqrt(Mathf.Pow((jugador.transform.position.x - transform.position.x),2)) > 
                                 Mathf.Sqrt(Mathf.Pow((jugador.transform.position.y - transform.position.y), 2)))
         {
@@ -68,5 +68,6 @@ public class MoverJugador : MonoBehaviour
                 jugador.GetComponent<MoveCharacter>().ChangeTrigger(ARRIBA);
             }
         }
+        moving = true;
     }
 }
