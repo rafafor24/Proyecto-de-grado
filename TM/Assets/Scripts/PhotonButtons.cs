@@ -15,12 +15,15 @@ public class PhotonButtons : MonoBehaviour
         if (createRoomInput.text.Length >= 1)
         {
             PhotonNetwork.CreateRoom(createRoomInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
+            
         }
     }
     public void onCLickJoinedRoom()
     {
+        Debug.Log(PhotonNetwork.GetRoomList()[0].Name);
         if (joinRoomInput.text.Length >= 1)
         {
+            Debug.Log(joinRoomInput.text);
             PhotonNetwork.JoinRoom(joinRoomInput.text);
         }
     }
