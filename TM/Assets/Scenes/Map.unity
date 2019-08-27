@@ -251,6 +251,7 @@ MonoBehaviour:
   prefabVia: {fileID: 8770909198470464285, guid: f1f0b4b76e6fb96429686d5105c83f51,
     type: 3}
   stations: {fileID: 11400000, guid: 814cde0592bb95f4d98ff347dcd1a452, type: 2}
+  stationsId: {fileID: 0}
   dist: 7
 --- !u!4 &325494590
 Transform:
@@ -444,6 +445,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528402125587186593, guid: a7302704497815c47a93e3e8d2019a77,
+        type: 3}
+      propertyPath: idX
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528402125587186593, guid: a7302704497815c47a93e3e8d2019a77,
+        type: 3}
+      propertyPath: idY
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7302704497815c47a93e3e8d2019a77, type: 3}
