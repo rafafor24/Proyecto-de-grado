@@ -10,6 +10,8 @@ public class CreateMap : MonoBehaviour
 
     public Stations stations;
 
+    public StationsId stationsId;
+
     public int dist;
 
     // Start is called before the first frame update
@@ -21,6 +23,10 @@ public class CreateMap : MonoBehaviour
             {
                 GameObject newObject = Instantiate(prefab, new Vector3(i * dist, j * dist, 0), Quaternion.identity);
                 newObject.GetComponentInChildren<TextMesh>().text = stations.stationsNames[i];
+                stationsId= (StationsId)newObject.GetComponent("StationsId");
+                stationsId.idX = i;
+                stationsId.idY = j;
+
                 if (i != (stations.x-1))
                 {
                 Instantiate(prefabVia, new Vector3(4+(i * dist), j * dist, 0), Quaternion.identity);               

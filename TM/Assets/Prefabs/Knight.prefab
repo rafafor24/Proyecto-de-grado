@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6066549556521219027}
   - component: {fileID: 6066549556521219028}
   - component: {fileID: 391903573361638931}
+  - component: {fileID: 4836476659329530428}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -992853353
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c68c7f5465e058b4c9eca305ae7c78db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -114,3 +115,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6066549556521219028}
+--- !u!114 &4836476659329530428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066549556521219029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028ae04d40b07164fa3af03cfdc7c23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idX: 0
+  idY: 0

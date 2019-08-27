@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8316007546509961167}
   - component: {fileID: 6459274127985919545}
   - component: {fileID: 279305741512561663}
+  - component: {fileID: 1259798533}
   m_Layer: 0
   m_Name: Estacion
   m_TagString: Untagged
@@ -155,6 +156,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+--- !u!114 &1259798533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056553300640212684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028ae04d40b07164fa3af03cfdc7c23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idX: 1
+  idY: 2
 --- !u!1 &6219571811692347907
 GameObject:
   m_ObjectHideFlags: 0
