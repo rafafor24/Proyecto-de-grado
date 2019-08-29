@@ -130,8 +130,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: OnMouseDown
+        - m_Target: {fileID: 279305741512561663}
+          m_MethodName: Click
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  id: 0
+  coords: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
 --- !u!114 &1259798533
 MonoBehaviour:
   m_ObjectHideFlags: 0

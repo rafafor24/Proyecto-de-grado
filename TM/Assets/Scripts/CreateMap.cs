@@ -14,15 +14,18 @@ public class CreateMap : MonoBehaviour
 
     public int dist;
 
+    private int idCount;
     // Start is called before the first frame update
     void Start()
     {
+        idCount = 0;
         for (int i = 0; i < stations.x; i++)
         {
             for (int j = 0; j < stations.y; j++)
             {
                 GameObject newObject = Instantiate(prefab, new Vector3(i * dist, j * dist, 0), Quaternion.identity);
                 newObject.GetComponentInChildren<TextMesh>().text = stations.stationsNames[i];
+                newObject.GetComponent<MoverJugador>().setId(idCount++);
                 stationsId= (StationsId)newObject.GetComponent("StationsId");
                 stationsId.idX = i;
                 stationsId.idY = j;

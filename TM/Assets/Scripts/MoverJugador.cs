@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoverJugador : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class MoverJugador : MonoBehaviour
     private GameObject jugador;
     public float speed = 10.0f;
     private bool moving;
-    private StationsId jugadorId;
     private StationsId stationId;
 
 
@@ -18,21 +18,42 @@ public class MoverJugador : MonoBehaviour
     public const string DERECHA = "derecha";
     public const string QUIETO = "quieto";
 
+    public int id;
+    public bool seleccionado;
+    public CoordsPlayer coords;
+
     // Start is called before the first frame update
     void Start()
     {
+        seleccionado = false;
         jugador = GameObject.FindGameObjectsWithTag("Player")[0];
-        print("init");
-        print(jugador.transform.position);
         moving = false;
         stationId= (StationsId)GetComponent("StationsId");
     }
 
+    public void setId(int i)
+    {
+        id = i;
+    }
     // Update is called once per frame
     void Update()
     {
+
+        /*if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print("Playerprefs: idEst: " + PlayerPrefs.GetInt("idEst") + " Este es el id de la estacion: " + id);
+
+        }*/
+
+        if (id== coords.estId)
+        {
+            print("WDF"+ coords.estId + " Este es el id: "+id);
+            Mover();
+            coords.estId = -1;
+        }
         if (moving)
         {
+            print("Entra a if moving update");
             float step = speed * Time.deltaTime;
 
             jugador.transform.position = Vector3.MoveTowards(jugador.transform.position, transform.position, step);
@@ -41,18 +62,18 @@ public class MoverJugador : MonoBehaviour
             {
                 jugador.GetComponent<MoveCharacter>().ChangeTrigger(QUIETO);
                 moving = false;
-                jugadorId = (StationsId)jugador.GetComponent("StationsId");
-                jugadorId.idX = stationId.idX;
-                jugadorId.idY = stationId.idY;
+                coords.x = stationId.idX;
+                coords.y = stationId.idY;
             }
         }
     }
 
-    public void OnMouseDown()
+    public void Mover()
     {
-        jugadorId = (StationsId)jugador.GetComponent("StationsId");
-        if ((jugadorId.idX==stationId.idX && ((jugadorId.idY==(stationId.idY+1)) || (jugadorId.idY == (stationId.idY - 1))))
-            || (jugadorId.idY == stationId.idY && ((jugadorId.idX == (stationId.idX + 1)) || (jugadorId.idX == (stationId.idX - 1)))))
+        
+        print("Entra a Mover");
+        if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
+            || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
         {
             if (Mathf.Sqrt(Mathf.Pow((jugador.transform.position.x - transform.position.x), 2)) >
                                Mathf.Sqrt(Mathf.Pow((jugador.transform.position.y - transform.position.y), 2)))
@@ -79,6 +100,25 @@ public class MoverJugador : MonoBehaviour
             }
             moving = true;
         }
+        }
+    public void Click()
+    {
+        seleccionado = true;
+        print("cid" + coords.estId + "id" + id);
+        SceneManager.LoadScene(3);        
+    }
 
+    void OnDisable()
+    {
+        if (seleccionado)
+        {
+            coords.estId = id;
+            coords.decisionId = -1;
+        }
+    }
+
+    void OnEnable()
+    {
+        
     }
 }

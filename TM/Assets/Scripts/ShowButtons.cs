@@ -1,23 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShowButtons : MonoBehaviour
 {
     public GameObject buttons;
+
+    public TextMeshProUGUI countdown;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ShowButtonPanel());
-        
+        StartCoroutine(ShowButtonPanel());        
     }
 
     IEnumerator ShowButtonPanel()
     {
-        print(Time.time);
-        yield return new WaitForSeconds(3);        
+        countdown.gameObject.SetActive(true);
+        countdown.text = "3";
+        yield return new WaitForSeconds(1);
+        countdown.text = "2";
+        yield return new WaitForSeconds(1);
+        countdown.text = "1";
+        yield return new WaitForSeconds(1);
+        countdown.gameObject.SetActive(false);
         buttons.SetActive(true);
-        print(Time.time);
+        buttons.GetComponent<TextoDecision>().StartCountDown();
     }
 
     // Update is called once per frame

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d64d512755b4c84da58264d8f093768, type: 3}
+  m_Name: Dialogue2
+  m_EditorClassIdentifier: 
+  name: Instrucciones!
+  sentences:
+  - "Para este minijuego, imagina que te encuentras haciendo la fila para entrar a
+    la estaci\xF3n de transmilenio."
+  - El juego consiste en que tomes diferentes decisiones, dichas desiciones pueden
+    afectarte o favorecerte dependiendo de lo que escojas y lo que decida otro jugador
+  - 'Tienes 2 opciones: colarte o hacer la fila correctamente. El otro jugador tiene
+    las mismas opciones.'
+  - Si te cuelas y el otro jugador hace la fila solo tardaras 1 minuto esperando y
+    el otro jugador 10.
+  - Si haces la fila y el otro jugador se cuela tardaras 10 minutos esperando y el
+    otro jugador solo 1 minuto
+  - Si ambos jugadores se cuelan tardaran 6 minutos cada uno y si ambos jugadores
+    hacen la fila se tardaran 3 minutos esperando.
