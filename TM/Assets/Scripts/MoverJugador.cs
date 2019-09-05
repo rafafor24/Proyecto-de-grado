@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -62,8 +63,10 @@ public class MoverJugador : MonoBehaviour
             {
                 jugador.GetComponent<MoveCharacter>().ChangeTrigger(QUIETO);
                 moving = false;
+                EditorUtility.SetDirty(coords);
                 coords.x = stationId.idX;
                 coords.y = stationId.idY;
+                
 
             }
         }
@@ -116,6 +119,7 @@ public class MoverJugador : MonoBehaviour
     {
         if (seleccionado)
         {
+            EditorUtility.SetDirty(coords);
             coords.estId = id;
             coords.decisionId = -1;
         }
