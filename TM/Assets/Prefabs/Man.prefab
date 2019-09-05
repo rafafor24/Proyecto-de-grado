@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4487729bf17994db04b3eb7463d2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
   animator: {fileID: 1067760527056231085}
   coords: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
   decision: {fileID: 0}
