@@ -3647,6 +3647,7 @@ GameObject:
   - component: {fileID: 2117853125}
   - component: {fileID: 2117853127}
   - component: {fileID: 2117853126}
+  - component: {fileID: 2117853128}
   m_Layer: 0
   m_Name: Time
   m_TagString: Untagged
@@ -3717,6 +3718,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117853124}
   m_CullTransparentMesh: 0
+--- !u!114 &2117853128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117853124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934d2886c3d1d4d49b2adc54b409dc6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderTiempo: {fileID: 961718639}
+  maxTime: {fileID: 1230186559}
+  timeActual: {fileID: 537150869}
+  tiempo: {fileID: 11400000, guid: f6aea03cdbf74f84aba0e0bcd6ff4752, type: 2}
 --- !u!1001 &4180201520739451105
 PrefabInstance:
   m_ObjectHideFlags: 0
