@@ -61,6 +61,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
     {
         if (stream.isWriting)
         {
+
             stream.SendNext(transform.position);
 
         }

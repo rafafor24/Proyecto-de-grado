@@ -5,8 +5,6 @@ using TMPro;
 
 public class MoveCharacter : Photon.MonoBehaviour
 {
-    public PhotonView photonView;
-
     public Animator animator;
 
     public CoordsPlayer coords;
@@ -18,6 +16,7 @@ public class MoveCharacter : Photon.MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coords = new CoordsPlayer(3,1,-1,-1,transform.position);
         transform.position = new Vector3 (coords.x * 7, coords.y * 7,0);
         if (coords.decisionId != -1)
         {
