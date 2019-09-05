@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MoveCharacter : MonoBehaviour
+public class MoveCharacter : Photon.MonoBehaviour
 {
+    public PhotonView photonView;
 
     public Animator animator;
 

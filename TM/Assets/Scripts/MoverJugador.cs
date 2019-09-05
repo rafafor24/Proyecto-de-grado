@@ -48,13 +48,11 @@ public class MoverJugador : MonoBehaviour
 
         if (id== coords.estId)
         {
-            print("WDF"+ coords.estId + " Este es el id: "+id);
             Mover();
             coords.estId = -1;
         }
         if (moving)
         {
-            print("Entra a if moving update");
             float step = speed * Time.deltaTime;
 
             jugador.transform.position = Vector3.MoveTowards(jugador.transform.position, transform.position, step);
@@ -63,7 +61,6 @@ public class MoverJugador : MonoBehaviour
             {
                 jugador.GetComponent<MoveCharacter>().ChangeTrigger(QUIETO);
                 moving = false;
-                EditorUtility.SetDirty(coords);
                 coords.x = stationId.idX;
                 coords.y = stationId.idY;
                 
@@ -119,7 +116,6 @@ public class MoverJugador : MonoBehaviour
     {
         if (seleccionado)
         {
-            EditorUtility.SetDirty(coords);
             coords.estId = id;
             coords.decisionId = -1;
         }
