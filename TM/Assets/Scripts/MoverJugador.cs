@@ -30,6 +30,8 @@ public class MoverJugador : MonoBehaviour
         jugador = GameObject.FindGameObjectsWithTag("Player")[0];
         moving = false;
         stationId= (StationsId)GetComponent("StationsId");
+        jugador.GetComponent<ControlTiempo>().ChangeMaxTime(60);
+        jugador.GetComponent<ControlTiempo>().ChangeMaxTime(60);
     }
 
     public void setId(int i)
@@ -62,11 +64,11 @@ public class MoverJugador : MonoBehaviour
             if (Vector3.Distance(jugador.transform.position, transform.position) < 0.001f)
             {
                 jugador.GetComponent<MoveCharacter>().ChangeTrigger(QUIETO);
+                jugador.GetComponent<ControlTiempo>().ReduceTimeActual(10);
                 moving = false;
                 EditorUtility.SetDirty(coords);
                 coords.x = stationId.idX;
                 coords.y = stationId.idY;
-                
 
             }
         }

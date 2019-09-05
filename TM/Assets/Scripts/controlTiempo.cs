@@ -3,33 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
-public class controlTiempo : MonoBehaviour
+public class ControlTiempo : MonoBehaviour
 {
 
     public Slider sliderTiempo;
     public TextMeshProUGUI maxTime;
     public TextMeshProUGUI timeActual;
+    public Tiempo tiempo;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ChangeMaxTime(int time)
     {
-        
+        tiempo.MaxTime = time;
+        sliderTiempo.maxValue = tiempo.MaxTime;
+        maxTime.SetText(tiempo.MaxTime.ToString());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeTimeActual(int time)
     {
-        
+        tiempo.ActualTime = time;
+        timeActual.SetText(tiempo.ActualTime.ToString());
+        sliderTiempo.value = tiempo.ActualTime;
     }
 
-    void ChangeMaxTime(int time)
+    public void ReduceTimeActual(int time)
     {
-        maxTime.SetText(time.ToString());
-    }
-
-    void ChangeTimeActual(int time)
-    {
-        timeActual.SetText(time.ToString());
+        tiempo.ActualTime = tiempo.ActualTime - time;
+        timeActual.SetText(tiempo.ActualTime.ToString());
+        sliderTiempo.value = tiempo.ActualTime;
     }
 }
