@@ -64,6 +64,7 @@ public class MoverJugador : MonoBehaviour
                 moving = false;
                 coords.x = stationId.idX;
                 coords.y = stationId.idY;
+
             }
         }
     }
@@ -72,9 +73,8 @@ public class MoverJugador : MonoBehaviour
     {
         
         print("Entra a Mover");
-        if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
-            || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
-        {
+        //if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
+        //    || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1))))){
             if (Mathf.Sqrt(Mathf.Pow((jugador.transform.position.x - transform.position.x), 2)) >
                                Mathf.Sqrt(Mathf.Pow((jugador.transform.position.y - transform.position.y), 2)))
             {
@@ -99,13 +99,17 @@ public class MoverJugador : MonoBehaviour
                 }
             }
             moving = true;
-        }
+       // }
         }
     public void Click()
     {
-        seleccionado = true;
-        print("cid" + coords.estId + "id" + id);
-        SceneManager.LoadScene(3);        
+        if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
+            || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
+        {
+            seleccionado = true;
+            print("cid" + coords.estId + "id" + id);
+            SceneManager.LoadScene(3);
+        }
     }
 
     void OnDisable()
