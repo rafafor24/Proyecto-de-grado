@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6066549556521219028}
   - component: {fileID: 391903573361638931}
   - component: {fileID: 4836476659329530428}
-  - component: {fileID: -7618934226725688409}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -116,9 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6066549556521219028}
-  coords: {fileID: 0}
-  decision: {fileID: 0}
-  dec: {fileID: 0}
 --- !u!114 &4836476659329530428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,20 +129,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idX: 0
   idY: 0
---- !u!114 &-7618934226725688409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6066549556521219029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 934d2886c3d1d4d49b2adc54b409dc6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliderTiempo: {fileID: 0}
-  maxTime: {fileID: 0}
-  timeActual: {fileID: 0}
-  intMaxTime: 0
-  intTimeActual: 0
