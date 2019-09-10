@@ -327,7 +327,6 @@ GameObject:
   - component: {fileID: 2064398047259333971}
   - component: {fileID: 2064398047259333970}
   - component: {fileID: 2064398047259333969}
-  - component: {fileID: 7630464877792353198}
   - component: {fileID: 8794690338574978141}
   - component: {fileID: 1330608754017534693}
   - component: {fileID: 1330608754017534688}
@@ -422,23 +421,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7630464877792353198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2064398047259333968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a4487729bf17994db04b3eb7463d2cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photonView: {fileID: 1330608754017534688}
-  animator: {fileID: 2064398047259333969}
-  coords: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
-  decision: {fileID: 121535447}
-  dec: {fileID: 11400000, guid: 3dcf7387bdfdb1348ba2ee13a39c9a63, type: 2}
 --- !u!114 &8794690338574978141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,6 +451,10 @@ MonoBehaviour:
   photonView: {fileID: 1330608754017534688}
   moveSpeed: 8
   plCam: {fileID: 5485394274420036043}
+  coords: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
+  animator: {fileID: 2064398047259333969}
+  decision: {fileID: 121535447}
+  dec: {fileID: 11400000, guid: 3dcf7387bdfdb1348ba2ee13a39c9a63, type: 2}
 --- !u!114 &1330608754017534688
 MonoBehaviour:
   m_ObjectHideFlags: 0

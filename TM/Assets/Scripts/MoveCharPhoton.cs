@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MoveCharPhoton : Photon.MonoBehaviour
 {
@@ -17,6 +18,23 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     private GameObject sceneCam;
 
+    private CoordsPlayer coords;
+
+    public Animator animator;
+
+    public TextMeshProUGUI decision;
+
+    public Dialogue dec;
+
+    private MenuLogic ml;
+
+    private void Start()
+    {
+        ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
+        coords = ml.getCoords();
+        transform.position = new Vector3(coords.x * 7, coords.y * 7, 0);
+    }
+
     private void Awake()
     {
         if (!devTest && photonView.isMine)
@@ -26,6 +44,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             plCam.SetActive(true);
         }
     }
+
     private void Update()
     {
         if (!devTest)
@@ -50,6 +69,11 @@ public class MoveCharPhoton : Photon.MonoBehaviour
     {
         var move = new Vector3(Input.GetAxis("Horizontal"), 0);
         transform.position += move * moveSpeed * Time.deltaTime;
+
+        if (coords.decisionId != -1)
+        {
+            decision.text = "Ultima Decision: " + dec.sentences[coords.decisionId];
+        }
     }
 
     private void smoothNetMov()
@@ -63,11 +87,21 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         {
 
             stream.SendNext(transform.position);
+            stream.SendNext(coords.decisionId);
 
         }
         else
         {
             selfPos = (Vector3)stream.ReceiveNext();
+            coords.decisionId = (int)stream.ReceiveNext();
+            ml.updateCoords(coords);
+            decision.text = "Ultima DecisionP: " + dec.sentences[coords.decisionId];
         }
     }
+
+    public void ChangeTrigger(string trigger)
+    {
+        animator.SetTrigger(trigger);
+    }
+
 }
