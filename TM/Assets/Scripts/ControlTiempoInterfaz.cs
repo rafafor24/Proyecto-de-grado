@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class ControlTiempo : MonoBehaviour
+public class ControlTiempoInterfaz : MonoBehaviour
 {
 
     public Slider sliderTiempo;
