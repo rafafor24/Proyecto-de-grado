@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d994365b34ce9468ab99930c691801, type: 3}
   m_Name: PuntajeMinijuego1
   m_EditorClassIdentifier: 
-  ambosBien: 0
-  unoBienOtroMal: 0
-  ambosMal: 0
-  unoMalOtroBien: 0
+  ambosBien: 3
+  unoBienOtroMal: 10
+  ambosMal: 6
+  unoMalOtroBien: 1
