@@ -2341,7 +2341,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Coneccion Perdida
+  m_text: Conexion Perdida
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2476,7 +2476,6 @@ MonoBehaviour:
     type: 3}
   coordsPlayer1: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
   coordsPlayer2: {fileID: 11400000, guid: f4109fef2520a844da39d8967333f580, type: 2}
-  player1: 0
 --- !u!4 &1909770174
 Transform:
   m_ObjectHideFlags: 0

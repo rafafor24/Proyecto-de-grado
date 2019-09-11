@@ -87,15 +87,15 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         {
 
             stream.SendNext(transform.position);
-            stream.SendNext(coords.decisionId);
+            //stream.SendNext(coords.decisionId);
 
         }
         else
         {
             selfPos = (Vector3)stream.ReceiveNext();
-            coords.decisionId = (int)stream.ReceiveNext();
-            ml.updateCoords(coords);
-            decision.text = "Ultima DecisionP: " + dec.sentences[coords.decisionId];
+            //coords.decisionId = (int)stream.ReceiveNext();
+            //ml.updateCoords(coords);
+            //decision.text = "Ultima DecisionP: " + dec.sentences[coords.decisionId];
         }
     }
 
