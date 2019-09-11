@@ -103,4 +103,16 @@ public class MenuLogic : Photon.MonoBehaviour
         Debug.Log("x: " + coordsPlayer2.x + " y: " + coordsPlayer2.y + " dec: " + coordsPlayer2.decisionId + " est: " + coordsPlayer2.estId);
 
     }
+
+    public void updateCoordXPlayer(int decId)
+    {
+        if (!player1)
+        {
+            coordsPlayer1.decisionId = decId;
+        }
+        else
+        {
+            coordsPlayer2.decisionId = decId;
+        }
+    }
 }
