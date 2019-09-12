@@ -55,6 +55,7 @@ public class MenuLogic : Photon.MonoBehaviour
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, TypedLobby.Default);
+        disableMenuUI();
     }
 
     public void disableMenuUI()
@@ -64,7 +65,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private void OnJoinedRoom()
     {
-        disableMenuUI();
+        disableMenuUI();        
         Debug.Log(PhotonNetwork.room.Name);
         Debug.Log("Conectado a la sala"+PhotonNetwork.GetRoomList().Length);
     }
@@ -76,6 +77,8 @@ public class MenuLogic : Photon.MonoBehaviour
             spawnPlayer();
         }
     }
+
+    
 
     private void spawnPlayer()
     {

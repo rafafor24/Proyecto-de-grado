@@ -30,9 +30,7 @@ public class MoverJugador : MonoBehaviour
     {
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coords = ml.getCoords();
-
         seleccionado = false;
-        jugador = GameObject.FindGameObjectsWithTag("Player")[0];
         moving = false;
         stationId= (StationsId)GetComponent("StationsId");
     }
@@ -44,7 +42,7 @@ public class MoverJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        jugador = GameObject.FindGameObjectWithTag("Player") ? GameObject.FindGameObjectWithTag("Player") : new GameObject();
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
             print("Playerprefs: idEst: " + PlayerPrefs.GetInt("idEst") + " Este es el id de la estacion: " + id);

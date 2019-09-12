@@ -62,7 +62,7 @@ public class TextoDecision : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>().joinOrCreateRoomAgain();
-        PhotonNetwork.LoadLevel("Map");
+        //PhotonNetwork.LoadLevel("Map");
     }
 
     public IEnumerator CountDown()
