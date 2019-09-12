@@ -94,7 +94,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         {
             selfPos = (Vector3)stream.ReceiveNext();
 
-            Debug.Log((int)stream.ReceiveNext());
+            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text= dec.sentences[(int)stream.ReceiveNext()];
         }
     }
 
