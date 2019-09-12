@@ -16,7 +16,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private string initialRoomName;
 
-
+    public DecisionesTomadas decisionesTomadas;
 
 
     private void Awake()
@@ -30,6 +30,14 @@ public class MenuLogic : Photon.MonoBehaviour
         coordsPlayer2.y = 2;
         coordsPlayer2.estId = -1;
         coordsPlayer2.decisionId = -1;
+
+        decisionesTomadas.pos = -1;
+        decisionesTomadas.mias[0] =-1;
+        decisionesTomadas.mias[1] = -1;
+        decisionesTomadas.mias[2] = -1;
+        decisionesTomadas.otro[0] = -1;
+        decisionesTomadas.otro[1] = -1;
+        decisionesTomadas.otro[2] = -1;
 
         DontDestroyOnLoad(this.transform);
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
@@ -61,6 +69,7 @@ public class MenuLogic : Photon.MonoBehaviour
     public void disableMenuUI()
     {
         PhotonNetwork.LoadLevel("Map");
+        //decisionesTomadas.pos += 1;
     }
 
     private void OnJoinedRoom()
