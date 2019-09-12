@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PuntajeMinijuego1
   m_EditorClassIdentifier: 
   ambosBien: 3
-  unoBienOtroMal: 10
+  unoBienOtroMal: 8
   ambosMal: 6
   unoMalOtroBien: 1

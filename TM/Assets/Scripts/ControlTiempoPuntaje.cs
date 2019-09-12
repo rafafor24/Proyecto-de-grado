@@ -6,6 +6,7 @@ public class ControlTiempoPuntaje : MonoBehaviour
 {
     public Puntajes puntajes;
 
+    //True Hizo Fila
     public int CambiarTiempos(bool des1, bool des2)
     {
         int rpta = -1;
