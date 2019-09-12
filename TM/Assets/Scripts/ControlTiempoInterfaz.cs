@@ -21,7 +21,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
     private void Start()
     {          
         ctp = GetComponent<ControlTiempoPuntaje>();
-        if ((GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text == "----------------")
+        if ((GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text.Equals("----------------"))
             )//Primera vez entra
         {
             ChangeMaxTime(15);
@@ -32,8 +32,8 @@ public class ControlTiempoInterfaz : MonoBehaviour
 
     private void Update()
     {
-        if (!(GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text == "----------------")&&
-            !(GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text == "----------------")&&calculado)//Primera vez entra
+        if (!(GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text.Equals("----------------"))&&
+            !(GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text.Equals("----------------"))&&calculado)//Primera vez entra
         {
             calculado = true;
 
