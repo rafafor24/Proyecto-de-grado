@@ -75,6 +75,7 @@ public class MenuLogic : Photon.MonoBehaviour
         if (scene.name == "Map")
         {
             spawnPlayer();
+
         }
     }
 

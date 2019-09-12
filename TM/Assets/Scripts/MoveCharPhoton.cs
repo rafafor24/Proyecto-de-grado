@@ -22,7 +22,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     public Animator animator;
 
-    public TextMeshProUGUI decision;
+    private TextMeshProUGUI decision;
 
     public Dialogue dec;
 
@@ -31,6 +31,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
     private void Start()
     {
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
+        decision = GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>();
         coords = ml.getCoords();
         transform.position = new Vector3(coords.x * 7, coords.y * 7, 0);
     }
@@ -72,7 +73,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
         if (coords.decisionId != -1)
         {
-            decision.text = "Ultima Decision: " + dec.sentences[coords.decisionId];
+            decision.text = dec.sentences[coords.decisionId];
         }
     }
 
@@ -93,7 +94,6 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         else
         {
             selfPos = (Vector3)stream.ReceiveNext();
-
             GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text= dec.sentences[(int)stream.ReceiveNext()];
         }
     }
