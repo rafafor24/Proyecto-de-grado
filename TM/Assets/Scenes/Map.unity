@@ -3479,6 +3479,7 @@ MonoBehaviour:
   maxTime: {fileID: 1230186559}
   timeActual: {fileID: 537150869}
   tiempo: {fileID: 11400000, guid: f6aea03cdbf74f84aba0e0bcd6ff4752, type: 2}
+  decisionesTomadas: {fileID: 11400000, guid: a45c15813f37c3f4798f82bd611bc138, type: 2}
 --- !u!114 &2117853129
 MonoBehaviour:
   m_ObjectHideFlags: 0

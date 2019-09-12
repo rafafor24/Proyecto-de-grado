@@ -24,6 +24,8 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     private TextMeshProUGUI decision;
 
+    public DecisionesTomadas decisionesTomadas;
+
     public Dialogue dec;
 
     private MenuLogic ml;
@@ -94,8 +96,28 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         else
         {
             selfPos = (Vector3)stream.ReceiveNext();
-            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text= dec.sentences[(int)stream.ReceiveNext()];
+            int tal = (int)stream.ReceiveNext();
+            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec.sentences[tal];
+            
+            if (decisionesTomadas.otro[decisionesTomadas.pos] == -1)
+            {
+                decisionesTomadas.otro[decisionesTomadas.pos] = tal;
+                Debug.Log("If1"+decisionesTomadas.pos);
+            }
+
+            if (decisionesTomadas.mias[decisionesTomadas.pos] == -1)
+            {
+                decisionesTomadas.mias[decisionesTomadas.pos] = coords.decisionId;
+                Debug.Log("If1"+decisionesTomadas.pos);
+            }
+
         }
+    }
+
+    private void OnDestroy()
+    {
+        decisionesTomadas.pos += 1;
+        Debug.Log(decisionesTomadas.pos);
     }
 
     public void ChangeTrigger(string trigger)
