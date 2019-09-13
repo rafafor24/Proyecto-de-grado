@@ -13,53 +13,49 @@ public class ControlTiempoInterfaz : MonoBehaviour
     public TextMeshProUGUI timeActual;
     public Tiempo tiempo;
     private ControlTiempoPuntaje ctp;
-    private bool dec1;
-    private bool dec2;
 
     public DecisionesTomadas decisionesTomadas;
 
-    private bool calculado = false;
-
-    private bool otroDecidio = false;
 
     private void Start()
     {          
         ctp = GetComponent<ControlTiempoPuntaje>();
-        if ((GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text.Equals("----------------"))
-            )//Primera vez entra
+        if(decisionesTomadas.pos==-1)
         {
             ChangeMaxTime(15);
             ChangeTimeActual(15);
-        }       
+        }
+        
         
     }
 
+    
     private void Update()
     {
-        if (otroDecidio)
-        {
-            if (!(GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text.Equals("----------------")) &&
-            !(GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text.Equals("----------------")) && !calculado)//Primera vez entra
-            {
-                calculado = true;
-                dec1 = (GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text == "Hacer la Fila");
-                dec2 = (GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text == "Hacer la fila");
 
-                int ptj = ctp.CambiarTiempos(dec1, dec2);
-                Debug.Log(ptj);
+        if (decisionesTomadas.pos > -1 && decisionesTomadas.pos<3)
+        {
+
+            int dec1 = decisionesTomadas.mias[decisionesTomadas.pos];
+            int dec2 = decisionesTomadas.otro[decisionesTomadas.pos];
+            
+            if (!decisionesTomadas.calculado[decisionesTomadas.pos] && dec1 != -1 && dec2 != -1)
+            {
+                bool bDec1 = dec1 == 1;
+                bool bDec2 = dec2 == 1;
+
+                Debug.Log("dec1 bool: "+bDec1);
+                Debug.Log("dec2 bool: "+bDec2);
+
+                int ptj = ctp.CambiarTiempos(bDec1, bDec2);
+                Debug.Log("ptj: " + ptj);
                 ReduceTimeActual(ptj);
-                Debug.Log(tiempo.ActualTime);
+                decisionesTomadas.calculado[decisionesTomadas.pos] = true;
             }
         }
-        else
-        {
-            if (!(GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>().text.Equals("----------------"))){
-
-            }            
-        }
-
-        
     }
+
+    
 
     public void ChangeMaxTime(int time)
     {

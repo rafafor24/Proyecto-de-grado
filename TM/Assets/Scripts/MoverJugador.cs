@@ -112,7 +112,7 @@ public class MoverJugador : MonoBehaviour
             || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
         {
             seleccionado = true;
-            print("cid" + coords.estId + "id" + id);
+            print("cid " + coords.estId + "id " + id);
             PhotonNetwork.LoadLevel("Instrucciones 1");
             PhotonNetwork.LeaveRoom();
         }

@@ -35,9 +35,14 @@ public class MenuLogic : Photon.MonoBehaviour
         decisionesTomadas.mias[0] =-1;
         decisionesTomadas.mias[1] = -1;
         decisionesTomadas.mias[2] = -1;
+
         decisionesTomadas.otro[0] = -1;
         decisionesTomadas.otro[1] = -1;
         decisionesTomadas.otro[2] = -1;
+
+        decisionesTomadas.calculado[0] = false;
+        decisionesTomadas.calculado[1] = false;
+        decisionesTomadas.calculado[2] = false;
 
         DontDestroyOnLoad(this.transform);
         SceneManager.sceneLoaded += OnSceneFinishedLoading;

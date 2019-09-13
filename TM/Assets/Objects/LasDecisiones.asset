@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mias: ffffffffffffffffffffffff
   otro: ffffffffffffffffffffffff
-  pos: 0
+  guardado: 000000
+  calculado: 000000
+  pos: -1
