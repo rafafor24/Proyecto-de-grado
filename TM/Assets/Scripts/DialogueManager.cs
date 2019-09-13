@@ -65,7 +65,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        PhotonNetwork.LoadLevel("Desicion1");
+        PhotonNetwork.LoadLevel("Decision #1");
     }
 
 }

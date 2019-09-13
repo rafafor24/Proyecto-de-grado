@@ -12,7 +12,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public CoordsPlayer coordsPlayer2;//
 
-    private bool player1=false;
+    private bool player1 = false;
 
     private string initialRoomName;
 
@@ -33,7 +33,7 @@ public class MenuLogic : Photon.MonoBehaviour
         coordsPlayer2.decisionId = -1;
 
         decisionesTomadas.pos = -1;
-        decisionesTomadas.mias[0] =-1;
+        decisionesTomadas.mias[0] = -1;
         decisionesTomadas.mias[1] = -1;
         decisionesTomadas.mias[2] = -1;
 
@@ -41,9 +41,9 @@ public class MenuLogic : Photon.MonoBehaviour
         decisionesTomadas.otro[1] = -1;
         decisionesTomadas.otro[2] = -1;
 
-        decisionesTomadas.calculado[0] = false;
-        decisionesTomadas.calculado[1] = false;
-        decisionesTomadas.calculado[2] = false;
+        decisionesTomadas.calcular[0] = false;
+        decisionesTomadas.calcular[1] = false;
+        decisionesTomadas.calcular[2] = false;
 
         tiempo.MaxTime = 15;
         tiempo.ActualTime = 15;
@@ -83,12 +83,12 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private void OnJoinedRoom()
     {
-        disableMenuUI();        
+        disableMenuUI();
         Debug.Log(PhotonNetwork.room.Name);
-        Debug.Log("Conectado a la sala"+PhotonNetwork.GetRoomList().Length);
+        Debug.Log("Conectado a la sala" + PhotonNetwork.GetRoomList().Length);
     }
 
-    private void OnSceneFinishedLoading(Scene scene,LoadSceneMode mode)
+    private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Map")
         {
@@ -97,7 +97,7 @@ public class MenuLogic : Photon.MonoBehaviour
         }
     }
 
-    
+
 
     private void spawnPlayer()
     {

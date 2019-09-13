@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/RoomManager.unity
     guid: 9c190edfdb47bfc4c909cf3fe8145ba8
   - enabled: 1
-    path: Assets/Scenes/Instrucciones 1.unity
+    path: 'Assets/Scenes/Instr. #1.unity'
     guid: 2839dfc2d6224c344b9ed3fbd15340fa
   - enabled: 1
-    path: Assets/Scenes/Desicion1.unity
+    path: 'Assets/Scenes/Decision #1.unity'
     guid: 9f636698f5f261343be45997f03ec031
   m_configObjects: {}

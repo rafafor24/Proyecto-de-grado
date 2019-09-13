@@ -67,7 +67,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         {
             checkInput();
         }
-        
+
     }
 
     private void checkInput()
@@ -101,37 +101,21 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             int tal = (int)stream.ReceiveNext();
             GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec.sentences[tal];
 
-            if (decisionesTomadas.pos==-1)
+            if (decisionesTomadas.pos == -1)
             {
                 decisionesTomadas.pos++;
                 Debug.Log("Entra al if inicial");
-            }else if(decisionesTomadas.pos<3 && !guardado
-                && tal!=-1 && coords.decisionId!=-1 &&
-                decisionesTomadas.mias[decisionesTomadas.pos]==-1 && decisionesTomadas.otro[decisionesTomadas.pos] == -1 )
+            }
+            if (decisionesTomadas.pos < 3 && !guardado
+                && tal != -1 && coords.decisionId != -1 &&
+                decisionesTomadas.mias[decisionesTomadas.pos] == -1 && decisionesTomadas.otro[decisionesTomadas.pos] == -1)
             {
-                Debug.Log("Entra a asignar decisiones en el espacio: "+decisionesTomadas.pos);
+                Debug.Log("Entra a asignar decisiones en el espacio: " + decisionesTomadas.pos);
                 decisionesTomadas.mias[decisionesTomadas.pos] = tal;
                 decisionesTomadas.otro[decisionesTomadas.pos] = coords.decisionId;
-                guardado=true;
-                decisionesTomadas.pos++;
+                decisionesTomadas.calcular[decisionesTomadas.pos] = true;
+                guardado = true;
             }
-
-
-
-
-            /*
-            if (decisionesTomadas.otro[decisionesTomadas.pos] != -1)
-            {
-                decisionesTomadas.otro[decisionesTomadas.pos] = tal;
-                Debug.Log("If1"+decisionesTomadas.pos);
-            }
-
-            if (decisionesTomadas.mias[decisionesTomadas.pos] != -1)
-            {
-                decisionesTomadas.mias[decisionesTomadas.pos] = coords.decisionId;
-                Debug.Log("If1"+decisionesTomadas.pos);
-            }*/
-
         }
     }
 

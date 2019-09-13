@@ -10,7 +10,7 @@ public class DecisionesTomadas : ScriptableObject
     
     public int[] otro;
 
-    public bool[] calculado;
+    public bool[] calcular;
 
     public int pos;
 }

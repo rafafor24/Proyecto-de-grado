@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -11.6}
+  m_AnchoredPosition: {x: 0, y: -11.599976}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &17209392
@@ -339,6 +339,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110347769}
   m_CullTransparentMesh: 0
+--- !u!1 &117495576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117495579}
+  - component: {fileID: 117495578}
+  - component: {fileID: 117495577}
+  m_Layer: 0
+  m_Name: PhotonScripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &117495577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117495576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204b450ddd4b5a54faf75cb18a15c1ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  versionName: 0.1
+  buttonCon: {fileID: 1754949561}
+  exito: {fileID: 17209389}
+  error: {fileID: 831054793}
+--- !u!114 &117495578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117495576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87873baeb92486b4d921a5295c2c35c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mLogic: {fileID: 295253507}
+  createRoomInput: {fileID: 1440067859}
+  joinRoomInput: {fileID: 2142345684}
+--- !u!4 &117495579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117495576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 767.9502, y: 418.48245, z: -122.625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &144315344
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,8 +861,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 295253509}
-  - component: {fileID: 295253508}
-  - component: {fileID: 295253506}
   - component: {fileID: 295253507}
   m_Layer: 0
   m_Name: PhotonDontDestroy
@@ -808,21 +869,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &295253506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295253505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87873baeb92486b4d921a5295c2c35c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mLogic: {fileID: 295253507}
-  createRoomInput: {fileID: 1440067859}
-  joinRoomInput: {fileID: 2142345684}
 --- !u!114 &295253507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,29 +881,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcd832570fe5f943abd0bd0734e5beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonB: {fileID: 295253506}
+  photonB: {fileID: 117495578}
   mainPlayer: {fileID: 2064398047259333968, guid: b3ace36cbe3d19b48b2cad3e7b739ced,
     type: 3}
   coordsPlayer1: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
   coordsPlayer2: {fileID: 11400000, guid: f4109fef2520a844da39d8967333f580, type: 2}
+  initialRoomName: 
   decisionesTomadas: {fileID: 11400000, guid: a45c15813f37c3f4798f82bd611bc138, type: 2}
   tiempo: {fileID: 11400000, guid: f6aea03cdbf74f84aba0e0bcd6ff4752, type: 2}
---- !u!114 &295253508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295253505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204b450ddd4b5a54faf75cb18a15c1ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  versionName: 0.1
-  buttonCon: {fileID: 1754949561}
-  exito: {fileID: 17209389}
-  error: {fileID: 831054793}
 --- !u!4 &295253509
 Transform:
   m_ObjectHideFlags: 0
@@ -2364,7 +2395,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 295253506}
+      - m_Target: {fileID: 117495578}
         m_MethodName: onCLickJoinedRoom
         m_Mode: 1
         m_Arguments:
@@ -2965,7 +2996,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 295253506}
+      - m_Target: {fileID: 117495578}
         m_MethodName: onCLickCreateRoom
         m_Mode: 1
         m_Arguments:

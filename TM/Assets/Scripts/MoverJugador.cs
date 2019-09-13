@@ -43,22 +43,15 @@ public class MoverJugador : MonoBehaviour
     void Update()
     {
         jugador = GameObject.FindGameObjectWithTag("Player") ? GameObject.FindGameObjectWithTag("Player") : new GameObject();
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            print("Playerprefs: idEst: " + PlayerPrefs.GetInt("idEst") + " Este es el id de la estacion: " + id);
-
-        }*/
-
+        
         if (id== coords.estId)
         {
-            print("WDF"+ coords.estId + " Este es el id: "+id);
             Mover();
             coords.estId = -1;
             ml.updateCoords(coords);
         }
         if (moving)
         {
-            print("Entra a if moving update");
             float step = speed * Time.deltaTime;
 
             jugador.transform.position = Vector3.MoveTowards(jugador.transform.position, transform.position, step);
@@ -67,7 +60,9 @@ public class MoverJugador : MonoBehaviour
             {
                 jugador.GetComponent<MoveCharPhoton>().ChangeTrigger(QUIETO);
                 moving = false;
+                #if UNITY_EDITOR
                 EditorUtility.SetDirty(coords);
+                #endif
                 coords.x = stationId.idX;
                 coords.y = stationId.idY;
                 ml.updateCoords(coords);
@@ -79,8 +74,6 @@ public class MoverJugador : MonoBehaviour
 
     public void Mover()
     {
-        
-        print("Entra a Mover");
         //if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
         //    || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1))))){
             if (Mathf.Sqrt(Mathf.Pow((jugador.transform.position.x - transform.position.x), 2)) >
@@ -115,8 +108,7 @@ public class MoverJugador : MonoBehaviour
             || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
         {
             seleccionado = true;
-            print("cid " + coords.estId + "id " + id);
-            PhotonNetwork.LoadLevel("Instrucciones 1");
+            PhotonNetwork.LoadLevel("Instr. #1");
             PhotonNetwork.LeaveRoom();
         }
     }
@@ -125,7 +117,9 @@ public class MoverJugador : MonoBehaviour
     {
         if (seleccionado)
         {
+            #if UNITY_EDITOR
             EditorUtility.SetDirty(coords);
+            #endif
             coords.estId = id;
             coords.decisionId = -1;
             ml.updateCoords(coords);

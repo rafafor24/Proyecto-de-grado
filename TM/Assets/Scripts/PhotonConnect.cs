@@ -31,10 +31,10 @@ public class PhotonConnect : MonoBehaviour
     }
     private void OnDisconnectedFromPhoton()
     {
-        if (buttonCon.active)
+        if (buttonCon.activeSelf)
             buttonCon.SetActive(false);
 
-        if (exito.active)
+        if (exito.activeSelf)
             exito.SetActive(false);
 
         error.SetActive(true);
