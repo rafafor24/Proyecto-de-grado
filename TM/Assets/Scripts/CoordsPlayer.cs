@@ -13,5 +13,16 @@ public class CoordsPlayer : ScriptableObject
     public int y;
     public int estId;
     public int decisionId;
+
+    public Vector3 posicion;
+
+    public CoordsPlayer(int pX,int pY, int pEstId, int pDecisionId, Vector3 pPosicion)
+    {
+        x = pX;
+        y = pY;
+        estId = pEstId;
+        decisionId = pDecisionId;
+        posicion = pPosicion;
+    }
 }
 

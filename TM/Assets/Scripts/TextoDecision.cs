@@ -16,10 +16,14 @@ public class TextoDecision : MonoBehaviour
 
     private bool decidido;
 
-    public CoordsPlayer coords;
+    private CoordsPlayer coords;
+
+    private MenuLogic ml;
     // Start is called before the first frame update
     void Start()
     {
+        ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
+        coords = ml.getCoords();
         decidido = false;
         des1.text = decisiones.sentences[0];
         des2.text = decisiones.sentences[1];
@@ -35,6 +39,7 @@ public class TextoDecision : MonoBehaviour
     {
         decidido = true;
         coords.decisionId = 0;
+        ml.updateCoords(coords);
         PlayerPrefs.SetInt("decision", 1);
         gameObject.transform.position = new Vector3(0, -200, 0);
         desFinal.SetActive(true);
@@ -45,6 +50,7 @@ public class TextoDecision : MonoBehaviour
     {
         decidido = true;
         coords.decisionId = 1;
+        ml.updateCoords(coords);
         PlayerPrefs.SetInt("decision", 2);
         gameObject.transform.position = new Vector3(0, -200, 0);
         desFinal.SetActive(true);
@@ -55,7 +61,8 @@ public class TextoDecision : MonoBehaviour
     IEnumerator ShowFinalDes()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(1);       
+        GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>().joinOrCreateRoomAgain();
+        //PhotonNetwork.LoadLevel("Map");
     }
 
     public IEnumerator CountDown()

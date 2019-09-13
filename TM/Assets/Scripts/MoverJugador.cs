@@ -21,13 +21,16 @@ public class MoverJugador : MonoBehaviour
 
     public int id;
     public bool seleccionado;
-    public CoordsPlayer coords;
 
+    private CoordsPlayer coords;
+
+    private MenuLogic ml;
     // Start is called before the first frame update
     void Start()
     {
+        ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
+        coords = ml.getCoords();
         seleccionado = false;
-        jugador = GameObject.FindGameObjectsWithTag("Player")[0];
         moving = false;
         stationId= (StationsId)GetComponent("StationsId");
     }
@@ -39,7 +42,7 @@ public class MoverJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        jugador = GameObject.FindGameObjectWithTag("Player") ? GameObject.FindGameObjectWithTag("Player") : new GameObject();
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
             print("Playerprefs: idEst: " + PlayerPrefs.GetInt("idEst") + " Este es el id de la estacion: " + id);
@@ -51,6 +54,7 @@ public class MoverJugador : MonoBehaviour
             print("WDF"+ coords.estId + " Este es el id: "+id);
             Mover();
             coords.estId = -1;
+            ml.updateCoords(coords);
         }
         if (moving)
         {
@@ -61,12 +65,13 @@ public class MoverJugador : MonoBehaviour
             
             if (Vector3.Distance(jugador.transform.position, transform.position) < 0.001f)
             {
-                jugador.GetComponent<MoveCharacter>().ChangeTrigger(QUIETO);
+                jugador.GetComponent<MoveCharPhoton>().ChangeTrigger(QUIETO);
                 moving = false;
                 EditorUtility.SetDirty(coords);
                 coords.x = stationId.idX;
                 coords.y = stationId.idY;
-                
+                ml.updateCoords(coords);
+
 
             }
         }
@@ -83,22 +88,22 @@ public class MoverJugador : MonoBehaviour
             {
                 if (jugador.transform.position.x > transform.position.x)
                 {
-                    jugador.GetComponent<MoveCharacter>().ChangeTrigger(IZQUIERDA);
+                    jugador.GetComponent<MoveCharPhoton>().ChangeTrigger(IZQUIERDA);
                 }
                 else
                 {
-                    jugador.GetComponent<MoveCharacter>().ChangeTrigger(DERECHA);
+                    jugador.GetComponent<MoveCharPhoton>().ChangeTrigger(DERECHA);
                 }
             }
             else
             {
                 if (jugador.transform.position.y > transform.position.y)
                 {
-                    jugador.GetComponent<MoveCharacter>().ChangeTrigger(ABAJO);
+                    jugador.GetComponent<MoveCharPhoton>().ChangeTrigger(ABAJO);
                 }
                 else
                 {
-                    jugador.GetComponent<MoveCharacter>().ChangeTrigger(ARRIBA);
+                    jugador.GetComponent<MoveCharPhoton>().ChangeTrigger(ARRIBA);
                 }
             }
             moving = true;
@@ -110,8 +115,9 @@ public class MoverJugador : MonoBehaviour
             || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
         {
             seleccionado = true;
-            print("cid" + coords.estId + "id" + id);
-            SceneManager.LoadScene(3);
+            print("cid " + coords.estId + "id " + id);
+            PhotonNetwork.LoadLevel("Instrucciones 1");
+            PhotonNetwork.LeaveRoom();
         }
     }
 
@@ -122,6 +128,7 @@ public class MoverJugador : MonoBehaviour
             EditorUtility.SetDirty(coords);
             coords.estId = id;
             coords.decisionId = -1;
+            ml.updateCoords(coords);
         }
     }
 
