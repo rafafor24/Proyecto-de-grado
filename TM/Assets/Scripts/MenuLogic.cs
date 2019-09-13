@@ -41,9 +41,9 @@ public class MenuLogic : Photon.MonoBehaviour
         decisionesTomadas.otro[1] = -1;
         decisionesTomadas.otro[2] = -1;
 
-        decisionesTomadas.calcular[0] = false;
-        decisionesTomadas.calcular[1] = false;
-        decisionesTomadas.calcular[2] = false;
+        decisionesTomadas.calculado[0] = false;
+        decisionesTomadas.calculado[1] = false;
+        decisionesTomadas.calculado[2] = false;
 
         tiempo.MaxTime = 15;
         tiempo.ActualTime = 15;

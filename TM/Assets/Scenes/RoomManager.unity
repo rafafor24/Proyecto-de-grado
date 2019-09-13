@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &17209390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -506,7 +506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.1, y: 172.8}
+  m_AnchoredPosition: {x: 7.0999756, y: 172.8}
   m_SizeDelta: {x: 174.17, y: -317.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155306903
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 295253506}
   - component: {fileID: 295253507}
   m_Layer: 0
-  m_Name: PhotonScript
+  m_Name: PhotonDontDestroy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,7 +835,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dcd832570fe5f943abd0bd0734e5beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectedMenu: {fileID: 17209389}
+  photonB: {fileID: 295253506}
+  mainPlayer: {fileID: 2064398047259333968, guid: b3ace36cbe3d19b48b2cad3e7b739ced,
+    type: 3}
+  coordsPlayer1: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
+  coordsPlayer2: {fileID: 11400000, guid: f4109fef2520a844da39d8967333f580, type: 2}
+  decisionesTomadas: {fileID: 11400000, guid: a45c15813f37c3f4798f82bd611bc138, type: 2}
+  tiempo: {fileID: 11400000, guid: f6aea03cdbf74f84aba0e0bcd6ff4752, type: 2}
 --- !u!114 &295253508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2217,7 +2223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1754949562
 RectTransform:
   m_ObjectHideFlags: 0
