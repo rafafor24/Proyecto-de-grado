@@ -12,15 +12,19 @@ public class DialogueManager : MonoBehaviour
 
     public Animator animator;
 
+    public Dialogue dialogue;
+
+
     private Queue<string> sentences;
 
     // Use this for initialization
     void Start()
     {
         sentences = new Queue<string>();
+        StartDialogue();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue()
     {
         animator.SetBool("IsOpen", true);
 
@@ -58,8 +62,7 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
     }
-
-    void EndDialogue()
+    public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
         SceneManager.LoadScene(4);

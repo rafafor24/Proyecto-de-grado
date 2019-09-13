@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PhotonButtons : MonoBehaviour
 {
 
     public MenuLogic mLogic;
-
-    public InputField createRoomInput, joinRoomInput;
+    
+    
+    public TMP_InputField createRoomInput, joinRoomInput;
 
     public void onCLickCreateRoom()
     {

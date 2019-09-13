@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d64d512755b4c84da58264d8f093768, type: 3}
+  m_Name: 'Instr. #1'
+  m_EditorClassIdentifier: 
+  name: Instrucciones!
+  sentences:
+  - "Para este minijuego, imagina que te encuentras haciendo la fila para entrar a
+    la estaci\xF3n de transmilenio."
+  - El juego consiste en tomar diferentes decisiones que pueden afectarte o favorecerte
+    dependiendo de lo que escojas y lo que decida otro jugador.
+  - 'Tienes 2 opciones: Colarse o Hacer la fila. El otro jugador tiene las mismas
+    opciones.'
+  - "Si un jugador elige Colarse y el otro jugador decide Hacer la fila, el que se
+    col\xF3 tardar\xE1 1 minuto esperando y el que hizo la fila tardar\xE1 10 minutos
+    esperando."
+  - "Si ambos jugadores deciden colarse se tardar\xE1n 6 minutos cada uno y si ambos
+    jugadores deciden Hacer la fila se tardar\xE1n 3 minutos cada uno."
