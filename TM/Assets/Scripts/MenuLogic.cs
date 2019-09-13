@@ -18,6 +18,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public DecisionesTomadas decisionesTomadas;
 
+    public Tiempo tiempo;
 
     private void Awake()
     {
@@ -40,9 +41,12 @@ public class MenuLogic : Photon.MonoBehaviour
         decisionesTomadas.otro[1] = -1;
         decisionesTomadas.otro[2] = -1;
 
-        decisionesTomadas.calculado[0] = false;
-        decisionesTomadas.calculado[1] = false;
-        decisionesTomadas.calculado[2] = false;
+        decisionesTomadas.calcular[0] = false;
+        decisionesTomadas.calcular[1] = false;
+        decisionesTomadas.calcular[2] = false;
+
+        tiempo.MaxTime = 15;
+        tiempo.ActualTime = 15;
 
         DontDestroyOnLoad(this.transform);
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
@@ -107,7 +111,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public void updateCoords(CoordsPlayer player)
     {
-        Debug.Log("x: " + player.x +" y: "+ player.y +" dec: "+ player.decisionId +" est: "+ player.estId);
+        //Debug.Log("x: " + player.x +" y: "+ player.y +" dec: "+ player.decisionId +" est: "+ player.estId);
         if (player1)
         {
             coordsPlayer1 = player;
@@ -117,8 +121,8 @@ public class MenuLogic : Photon.MonoBehaviour
             coordsPlayer2 = player;
         }
 
-        Debug.Log("x: " + coordsPlayer1.x + " y: " + coordsPlayer1.y + " dec: " + coordsPlayer1.decisionId + " est: " + coordsPlayer1.estId);
-        Debug.Log("x: " + coordsPlayer2.x + " y: " + coordsPlayer2.y + " dec: " + coordsPlayer2.decisionId + " est: " + coordsPlayer2.estId);
+        //Debug.Log("x: " + coordsPlayer1.x + " y: " + coordsPlayer1.y + " dec: " + coordsPlayer1.decisionId + " est: " + coordsPlayer1.estId);
+        //Debug.Log("x: " + coordsPlayer2.x + " y: " + coordsPlayer2.y + " dec: " + coordsPlayer2.decisionId + " est: " + coordsPlayer2.estId);
 
     }
 

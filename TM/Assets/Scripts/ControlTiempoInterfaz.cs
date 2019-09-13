@@ -12,14 +12,15 @@ public class ControlTiempoInterfaz : MonoBehaviour
     public TextMeshProUGUI maxTime;
     public TextMeshProUGUI timeActual;
     public Tiempo tiempo;
-    private ControlTiempoPuntaje ctp;
 
     public DecisionesTomadas decisionesTomadas;
 
+    public Puntajes puntajes;
 
+    //True Hizo Fila
+    
     private void Start()
     {          
-        ctp = GetComponent<ControlTiempoPuntaje>();
         if(decisionesTomadas.pos==-1)
         {
             ChangeMaxTime(15);
@@ -29,30 +30,45 @@ public class ControlTiempoInterfaz : MonoBehaviour
         
     }
 
-    
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 1)
+        {
+            ChangeMaxTime(15);
+            ActualizarTiempoInterfaz();
+        }
+    }
+
     private void Update()
     {
-
-        if (decisionesTomadas.pos > -1 && decisionesTomadas.pos<3)
+        if (decisionesTomadas.pos > -1 && decisionesTomadas.pos < 3)
         {
 
             int dec1 = decisionesTomadas.mias[decisionesTomadas.pos];
             int dec2 = decisionesTomadas.otro[decisionesTomadas.pos];
-            
-            if (!decisionesTomadas.calculado[decisionesTomadas.pos] && dec1 != -1 && dec2 != -1)
+            bool calc = decisionesTomadas.calcular[decisionesTomadas.pos];
+            //Debug.Log("Entra al if del update dec1: " + dec1 + " dec2: " + dec2 + " calcular=" + calc);
+
+
+            if (calc)
             {
                 bool bDec1 = dec1 == 1;
                 bool bDec2 = dec2 == 1;
 
-                Debug.Log("dec1 bool: "+bDec1);
-                Debug.Log("dec2 bool: "+bDec2);
+                Debug.Log("dec1 bool: " + bDec1 + " dec2 bool: " + bDec2);
 
-                int ptj = ctp.CambiarTiempos(bDec1, bDec2);
+                int ptj = CambiarTiempos(bDec1, bDec2);
                 Debug.Log("ptj: " + ptj);
                 ReduceTimeActual(ptj);
-                decisionesTomadas.calculado[decisionesTomadas.pos] = true;
+                decisionesTomadas.calcular[decisionesTomadas.pos] = false;
+                decisionesTomadas.pos++;
             }
         }
+    }
+
+    private void ActualizarTiempoInterfaz()
+    {
+        
     }
 
     
@@ -77,5 +93,30 @@ public class ControlTiempoInterfaz : MonoBehaviour
         timeActual.SetText(tiempo.ActualTime.ToString());
         sliderTiempo.value = tiempo.ActualTime;
     }
+
+    public int CambiarTiempos(bool des1, bool des2)
+    {
+        int rpta = -1;
+
+        if (des1 && des2)
+        {
+            rpta = puntajes.ambosBien;
+        }
+        else if (des1 && !des2)
+        {
+            rpta = puntajes.unoMalOtroBien;
+        }
+        else if (!des1 && des2)
+        {
+            rpta = puntajes.unoBienOtroMal;
+        }
+        else if (!des1 && !des2)
+        {
+            rpta = puntajes.ambosMal;
+        }
+
+        return rpta;
+    }
+
 }
 
