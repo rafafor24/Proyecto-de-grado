@@ -75,6 +75,15 @@ public class MenuLogic : Photon.MonoBehaviour
         disableMenuUI();
     }
 
+    public void joinOrCreateRoomQuick()
+    {
+        initialRoomName = "QuickGame";
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = 2;
+        PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, TypedLobby.Default);
+        disableMenuUI();
+    }
+
     public void disableMenuUI()
     {
         PhotonNetwork.LoadLevel("Map");

@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MenuPrincipal : MonoBehaviour
 {
+
+    public bool quickGame;
+
+    public float numPartida;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.transform);
+    }
+
     public void ClickMenuPrincipal()
     {
         SceneManager.LoadScene(0);
@@ -12,13 +22,16 @@ public class MenuPrincipal : MonoBehaviour
 
     public void ClickJuego()
     {
+        quickGame = false;
         SceneManager.LoadScene(2);
     }
 
 
     public void ClickJuegoRapido()
     {
-        SceneManager.LoadScene(1);
+        numPartida += 0.5f;
+        quickGame = true;
+        SceneManager.LoadScene(2);
     }
 
     public void ClickSalir()

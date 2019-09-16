@@ -6,7 +6,8 @@ public class PhotonConnect : MonoBehaviour
 {
     public string versionName = "0.1";
 
-    public GameObject buttonCon, exito, error;
+    public GameObject buttonCon, exito, error, quickgame;
+
     private void Awake()
     {
         PhotonNetwork.ConnectUsingSettings(versionName);
@@ -25,7 +26,16 @@ public class PhotonConnect : MonoBehaviour
     private void OnJoinedLobby()
     {
         buttonCon.SetActive(false);
-        exito.SetActive(true);
+
+        MenuPrincipal mp = GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
+        if (mp.quickGame)
+        {
+            quickgame.SetActive(true);
+        }
+        else
+        {
+            exito.SetActive(true);
+        }        
 
         Debug.Log("On Joined Lobby");
     }

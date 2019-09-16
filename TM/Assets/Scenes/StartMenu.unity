@@ -368,7 +368,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1196988483}
+      - m_Target: {fileID: 1519596807}
         m_MethodName: ClickJuegoRapido
         m_Mode: 1
         m_Arguments:
@@ -428,7 +428,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1196988482}
-  - component: {fileID: 1196988483}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -459,18 +458,6 @@ RectTransform:
   m_AnchoredPosition: {x: -7.4, y: -2.6}
   m_SizeDelta: {x: 906, y: 499.6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1196988483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196988481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 442a47831cd1ece4eb80b0088023c012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1318606957
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +540,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1196988483}
+      - m_Target: {fileID: 1519596807}
         m_MethodName: ClickJuego
         m_Mode: 1
         m_Arguments:
@@ -844,6 +831,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1519596806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1519596808}
+  - component: {fileID: 1519596807}
+  m_Layer: 0
+  m_Name: MainMenuDontDestroy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1519596807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519596806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 442a47831cd1ece4eb80b0088023c012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1519596808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519596806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 419.07916, y: 149.66356, z: -21.437988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1574589449
 GameObject:
@@ -1160,7 +1190,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1196988481}
+      - m_Target: {fileID: 1519596806}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -1451,7 +1481,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1196988483}
+      - m_Target: {fileID: 1519596807}
         m_MethodName: ClickSalir
         m_Mode: 1
         m_Arguments:
