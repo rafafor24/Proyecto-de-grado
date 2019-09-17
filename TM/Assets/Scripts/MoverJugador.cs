@@ -19,6 +19,11 @@ public class MoverJugador : MonoBehaviour
     public const string DERECHA = "derecha";
     public const string QUIETO = "quieto";
 
+    
+
+    public GameObject meta;
+    public bool metaBool=false;
+
     public int id;
     public bool seleccionado;
 
@@ -39,6 +44,12 @@ public class MoverJugador : MonoBehaviour
     {
         id = i;
     }
+
+    public void estadoMeta(bool state)
+    {
+        meta.SetActive(state);
+    }
+
     // Update is called once per frame
     void Update()
     {
