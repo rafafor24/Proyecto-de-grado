@@ -6,7 +6,7 @@ public class PhotonConnect : MonoBehaviour
 {
     public string versionName = "0.1";
 
-    public GameObject buttonCon, exito, error, quickgame;
+    public GameObject buttonCon, exito, error;
 
     private void Awake()
     {
@@ -28,9 +28,10 @@ public class PhotonConnect : MonoBehaviour
         buttonCon.SetActive(false);
 
         MenuPrincipal mp = GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
+        MenuLogic ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         if (mp.quickGame)
         {
-            quickgame.SetActive(true);
+            ml.joinOrCreateRoomQuick();
         }
         else
         {
