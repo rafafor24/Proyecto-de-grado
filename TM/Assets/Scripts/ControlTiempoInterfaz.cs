@@ -78,8 +78,8 @@ public class ControlTiempoInterfaz : MonoBehaviour
         }
         else
         {
-            Debug.Log("length "+GameObject.FindGameObjectsWithTag("Player").Length);
-            Debug.Log("pos "+decisionesTomadas.pos);
+            //Debug.Log("length "+GameObject.FindGameObjectsWithTag("Player").Length);
+            //Debug.Log("pos "+decisionesTomadas.pos);
             if (coordsOther.perdio && (GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x == 6 && coordsPlayer.x == 2))
             {
                 PhotonNetwork.LoadLevel("Ganar");

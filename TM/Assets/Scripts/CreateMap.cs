@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CreateMap : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class CreateMap : MonoBehaviour
             for (int j = 0; j < stations.y; j++)
             {
                 GameObject newObject = Instantiate(prefab, new Vector3(i * dist, j * dist, 0), Quaternion.identity);
-                newObject.GetComponentInChildren<TextMesh>().text = stations.stationsNames[i];
+                newObject.GetComponentInChildren<TextMeshPro>().text = stations.stationsNames[i];
                 MoverJugador moverJugador=newObject.GetComponent<MoverJugador>();
                 moverJugador.setId(idCount++);
 
