@@ -10,7 +10,27 @@ public class PhotonConnect : MonoBehaviour
 
     private void Awake()
     {
-        PhotonNetwork.ConnectUsingSettings(versionName);
+        Debug.Log(PhotonNetwork.connectionState.ToString());
+        if (PhotonNetwork.connectionState.ToString().Equals("Disconnected"))
+        {
+            Debug.Log("Entraif");
+            PhotonNetwork.ConnectUsingSettings(versionName);
+        }
+        else
+        {
+            buttonCon.SetActive(false);
+
+            MenuPrincipal mp = GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
+            MenuLogic ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
+            if (mp.quickGame)
+            {
+                ml.joinOrCreateRoomQuick();
+            }
+            else
+            {
+                exito.SetActive(true);
+            }
+        }
 
         //Debug.Log("Conectandose a photon");
     }
@@ -19,7 +39,7 @@ public class PhotonConnect : MonoBehaviour
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);
 
-        //Debug.Log("Coneccion a Master!");
+        Debug.Log("Coneccion a Master!");
 
     }
 
@@ -38,7 +58,7 @@ public class PhotonConnect : MonoBehaviour
             exito.SetActive(true);
         }        
 
-        //Debug.Log("On Joined Lobby");
+        Debug.Log("On Joined Lobby");
     }
     private void OnDisconnectedFromPhoton()
     {
@@ -49,7 +69,7 @@ public class PhotonConnect : MonoBehaviour
             exito.SetActive(false);
 
         error.SetActive(true);
-        //Debug.Log("Desconexion de photon");
+        Debug.Log("Desconexion de photon");
     }
 
 

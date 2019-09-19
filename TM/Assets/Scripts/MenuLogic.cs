@@ -56,7 +56,10 @@ public class MenuLogic : Photon.MonoBehaviour
         tiempo.MaxTime = 15;
         tiempo.ActualTime = 15;
 
-        DontDestroyOnLoad(this.transform);
+        //if (GameObject.FindGameObjectsWithTag("MenuLogic").Length == 1)
+        {
+            DontDestroyOnLoad(this.transform);
+        }
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
     }
 

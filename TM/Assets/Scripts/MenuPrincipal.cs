@@ -12,7 +12,11 @@ public class MenuPrincipal : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.transform);
+        Debug.Log(GameObject.FindGameObjectsWithTag("MainMenu").Length);
+        if (GameObject.FindGameObjectsWithTag("MainMenu").Length==1){
+            DontDestroyOnLoad(this.transform);
+        }
+        
     }
 
     public void ClickMenuPrincipal()
@@ -22,7 +26,8 @@ public class MenuPrincipal : MonoBehaviour
 
     public void ClickJuego()
     {
-        quickGame = false;
+        MenuPrincipal mp = GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
+        mp.quickGame = false;
         SceneManager.LoadScene(2);
     }
 
@@ -30,7 +35,8 @@ public class MenuPrincipal : MonoBehaviour
     public void ClickJuegoRapido()
     {
         numPartida += 0.5f;
-        quickGame = true;
+        MenuPrincipal mp = GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
+        mp.quickGame = true;
         SceneManager.LoadScene(2);
     }
 
