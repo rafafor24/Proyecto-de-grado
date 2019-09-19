@@ -15,6 +15,8 @@ public class ControlTiempoInterfaz : MonoBehaviour
     public Tiempo tiempo;
 
     private CoordsPlayer coordsPlayer;
+    private CoordsPlayer coordsOther;
+
     public DecisionesTomadas decisionesTomadas;
 
     public Puntajes puntajes;
@@ -26,6 +28,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
     {
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coordsPlayer = ml.getCoords();
+        coordsOther = ml.GetCoordsOther();
         if (decisionesTomadas.pos == -1)
         {
             ChangeMaxTime(15);
@@ -70,6 +73,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
         Debug.Log(tiempo.ActualTime);
         if (tiempo.ActualTime <= 0)
         {
+            coordsPlayer.perdio = true;
             PhotonNetwork.LoadLevel("Perder");
             PhotonNetwork.LeaveRoom();
         }
@@ -77,7 +81,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
         {
             Debug.Log("length "+GameObject.FindGameObjectsWithTag("Player").Length);
             Debug.Log("pos "+decisionesTomadas.pos);
-            if (decisionesTomadas.pos>0&& (GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x == 6 && coordsPlayer.x == 2))
+            if (coordsOther.perdio && (GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x == 6 && coordsPlayer.x == 2))
             {
                 PhotonNetwork.LoadLevel("Ganar");
                 PhotonNetwork.LeaveRoom();

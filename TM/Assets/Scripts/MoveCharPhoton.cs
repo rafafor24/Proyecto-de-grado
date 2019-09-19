@@ -20,6 +20,8 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     private CoordsPlayer coords;
 
+    private CoordsPlayer coordsOther;
+
     public Animator animator;
 
     private TextMeshProUGUI decision;
@@ -39,6 +41,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         decision = GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>();
         coords = ml.getCoords();
+        coordsOther = ml.GetCoordsOther();
         ej = ml.GetEsperarJugador();
         transform.position = new Vector3(coords.x * 7, coords.y * 7, 0);
     }
@@ -97,6 +100,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             stream.SendNext(transform.position);
             stream.SendNext(coords.decisionId);
             stream.SendNext(ej.jugar[0]);
+            stream.SendNext(coords.perdio);
 
         }
         else
@@ -104,6 +108,8 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             selfPos = (Vector3)stream.ReceiveNext();
             int tal = (int)stream.ReceiveNext();
             bool otroJugar = (bool)stream.ReceiveNext();
+            bool perdioOtro = (bool)stream.ReceiveNext();
+            coordsOther.perdio = perdioOtro;
 
             ej.jugar[1] = otroJugar;
 

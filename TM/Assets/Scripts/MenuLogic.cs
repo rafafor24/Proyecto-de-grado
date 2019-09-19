@@ -28,11 +28,13 @@ public class MenuLogic : Photon.MonoBehaviour
         coordsPlayer1.y = 2;
         coordsPlayer1.estId = -1;
         coordsPlayer1.decisionId = -1;
+        coordsPlayer1.perdio = false;
 
         coordsPlayer2.x = 3;
         coordsPlayer2.y = 2;
         coordsPlayer2.estId = -1;
         coordsPlayer2.decisionId = -1;
+        coordsPlayer2.perdio = false;
 
         decisionesTomadas.pos = -1;
         decisionesTomadas.mias[0] = -1;
@@ -122,6 +124,11 @@ public class MenuLogic : Photon.MonoBehaviour
     public CoordsPlayer getCoords()
     {
         return player1 ? coordsPlayer1 : coordsPlayer2;
+    }
+
+    public CoordsPlayer GetCoordsOther()
+    {
+        return player1 ? coordsPlayer2 : coordsPlayer1;
     }
 
     public void updateCoords(CoordsPlayer player)
