@@ -17,9 +17,12 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private MenuLogic ml;
+
     // Use this for initialization
     void Start()
     {
+        ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         sentences = new Queue<string>();
         StartDialogue();
     }
@@ -65,7 +68,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        PhotonNetwork.LoadLevel("Decision #1");
+        PhotonNetwork.LoadLevel("Decision #"+ml.decAct);
     }
 
 }

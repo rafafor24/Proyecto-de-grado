@@ -14,6 +14,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private bool player1 = false;
 
+    public int decAct=1;
     private string initialRoomName;
 
     public DecisionesTomadas decisionesTomadas;

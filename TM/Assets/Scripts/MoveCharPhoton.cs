@@ -28,7 +28,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     public DecisionesTomadas decisionesTomadas;
 
-    public Dialogue dec;
+    public Dialogue[] dec;
 
     private MenuLogic ml;
 
@@ -83,7 +83,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
         if (coords.decisionId != -1)
         {
-            decision.text = dec.sentences[coords.decisionId];
+            decision.text = dec[ml.decAct-2].sentences[coords.decisionId];
         }
     }
 
@@ -122,7 +122,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
                 PhotonNetwork.LeaveRoom();
             }*/
 
-            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec.sentences[tal];
+            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[ml.decAct-2].sentences[tal];
 
             if (decisionesTomadas.pos == -1)
             {
