@@ -74,8 +74,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
         if (tiempo.ActualTime <= 0)
         {
             coordsPlayer.perdio = true;
-            PhotonNetwork.LoadLevel("Perder");
-            PhotonNetwork.LeaveRoom();
+            StartCoroutine(EsperarCambio());
         }
         else
         {
@@ -140,6 +139,13 @@ public class ControlTiempoInterfaz : MonoBehaviour
         }
 
         return rpta;
+    }
+
+    IEnumerator EsperarCambio()
+    {
+        yield return new WaitForSeconds(5);
+        PhotonNetwork.LoadLevel("Perder");
+        PhotonNetwork.LeaveRoom();
     }
 
 }
