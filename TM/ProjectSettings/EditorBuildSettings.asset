@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: 'Assets/Scenes/Decision #2.unity'
     guid: b03667a3fbd75a24491055e2ffdfb383
+  - enabled: 1
+    path: 'Assets/Scenes/Decision #3.unity'
+    guid: 028876ebc21683749a46f26476706350
+  - enabled: 1
+    path: 'Assets/Scenes/Instr. #3.unity'
+    guid: d2ac504ec58b61145b2cd5d417dac1e8
   m_configObjects: {}

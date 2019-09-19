@@ -61,7 +61,6 @@ public class TextoDecision : MonoBehaviour
     IEnumerator ShowFinalDes()
     {
         yield return new WaitForSeconds(3);
-        ml.decAct += 1;
         GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>().joinOrCreateRoomAgain();
         //PhotonNetwork.LoadLevel("Map");
     }
