@@ -68,6 +68,21 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 decisionesTomadas.pos++;
             }
         }
+        Debug.Log(tiempo.ActualTime);
+        if (tiempo.ActualTime <= 0)
+        {
+            PhotonNetwork.LoadLevel("Perder");
+            PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
+            if (GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x == 6 && coordsPlayer.x == 2)
+            {
+                PhotonNetwork.LoadLevel("Ganar");
+                PhotonNetwork.LeaveRoom();
+            }
+        }
     }
 
     private void ActualizarTiempoInterfaz()
@@ -96,20 +111,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
         tiempo.ActualTime = tiempo.ActualTime - time;
         timeActual.SetText(tiempo.ActualTime.ToString());
         sliderTiempo.value = tiempo.ActualTime;
-        Debug.Log(tiempo.ActualTime);
-        if (tiempo.ActualTime <= 0)
-        {
-            PhotonNetwork.LoadLevel("Perder");
-            PhotonNetwork.LeaveRoom();
-        }
-        else
-        {
-            if(GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x==6&& coordsPlayer.x == 2)
-            {
-                PhotonNetwork.LoadLevel("Ganar");
-                PhotonNetwork.LeaveRoom();
-            }
-        }
+        
     }
 
     public int CambiarTiempos(bool des1, bool des2)

@@ -99,8 +99,8 @@ public class MenuLogic : Photon.MonoBehaviour
     private void OnJoinedRoom()
     {
         disableMenuUI();
-        Debug.Log(PhotonNetwork.room.Name);
-        Debug.Log("Conectado a la sala" + PhotonNetwork.GetRoomList().Length);
+        //Debug.Log(PhotonNetwork.room.Name);
+        //Debug.Log("Conectado a la sala" + PhotonNetwork.GetRoomList().Length);
     }
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)

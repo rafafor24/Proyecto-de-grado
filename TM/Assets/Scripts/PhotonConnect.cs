@@ -12,14 +12,14 @@ public class PhotonConnect : MonoBehaviour
     {
         PhotonNetwork.ConnectUsingSettings(versionName);
 
-        Debug.Log("Conectandose a photon");
+        //Debug.Log("Conectandose a photon");
     }
 
     private void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);
 
-        Debug.Log("Coneccion a Master!");
+        //Debug.Log("Coneccion a Master!");
 
     }
 
@@ -38,7 +38,7 @@ public class PhotonConnect : MonoBehaviour
             exito.SetActive(true);
         }        
 
-        Debug.Log("On Joined Lobby");
+        //Debug.Log("On Joined Lobby");
     }
     private void OnDisconnectedFromPhoton()
     {
@@ -49,7 +49,7 @@ public class PhotonConnect : MonoBehaviour
             exito.SetActive(false);
 
         error.SetActive(true);
-        Debug.Log("Desconexion de photon");
+        //Debug.Log("Desconexion de photon");
     }
 
 
