@@ -163,7 +163,7 @@ public class MoverJugador : MonoBehaviour
             {
                 ej.mostrarAviso = true;
                 avisoEsperarJugador.transform.localScale = new Vector3(1, 1, 1);
-                StartCoroutine(EsperarCambio());
+                //StartCoroutine(EsperarCambio());
                 //PhotonNetwork.LoadLevel("Instr. #1");
                 //PhotonNetwork.LeaveRoom();
             }
@@ -172,8 +172,9 @@ public class MoverJugador : MonoBehaviour
                 //ej.jugar[0] = false;
                 //ej.jugar[1] = false;
                 ej.mostrarAviso = false;
-                PhotonNetwork.LoadLevel("Instr. #1");
-                PhotonNetwork.LeaveRoom();
+                StartCoroutine(EsperarCambio());
+                //PhotonNetwork.LoadLevel("Instr. #1");
+                //PhotonNetwork.LeaveRoom();
             }
 
             
@@ -200,7 +201,7 @@ public class MoverJugador : MonoBehaviour
 
     IEnumerator EsperarCambio()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         PhotonNetwork.LoadLevel("Instr. #1");
         PhotonNetwork.LeaveRoom();
     }
