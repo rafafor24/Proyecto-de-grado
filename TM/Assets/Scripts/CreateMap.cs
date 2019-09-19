@@ -28,7 +28,7 @@ public class CreateMap : MonoBehaviour
                 MoverJugador moverJugador=newObject.GetComponent<MoverJugador>();
                 moverJugador.setId(idCount++);
 
-                if (i == 5 && j == 2)
+                if (i == 6 && j == 2)
                 {
                     moverJugador.estadoMeta(true);
                     moverJugador.metaBool = true;

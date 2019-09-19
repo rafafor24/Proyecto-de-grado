@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ControlTiempoInterfaz : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class ControlTiempoInterfaz : MonoBehaviour
     public TextMeshProUGUI maxTime;
     public TextMeshProUGUI timeActual;
     public Tiempo tiempo;
+
+    public CoordsPlayer coordsPlayer;
 
     public DecisionesTomadas decisionesTomadas;
 
@@ -26,8 +29,6 @@ public class ControlTiempoInterfaz : MonoBehaviour
             ChangeMaxTime(15);
             ChangeTimeActual(15);
         }
-
-
     }
 
     private void OnLevelWasLoaded(int level)
@@ -55,10 +56,10 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 bool bDec1 = dec1 == 1;
                 bool bDec2 = dec2 == 1;
 
-                Debug.Log("dec1 bool: " + bDec1 + " dec2 bool: " + bDec2);
+                //Debug.Log("dec1 bool: " + bDec1 + " dec2 bool: " + bDec2);
 
                 int ptj = CambiarTiempos(bDec1, bDec2);
-                Debug.Log("ptj: " + ptj);
+                //Debug.Log("ptj: " + ptj);
                 ReduceTimeActual(ptj);
                 decisionesTomadas.calcular[decisionesTomadas.pos] = false;
                 decisionesTomadas.pos++;
@@ -92,6 +93,17 @@ public class ControlTiempoInterfaz : MonoBehaviour
         tiempo.ActualTime = tiempo.ActualTime - time;
         timeActual.SetText(tiempo.ActualTime.ToString());
         sliderTiempo.value = tiempo.ActualTime;
+        if (tiempo.ActualTime <= 0)
+        {
+            SceneManager.LoadScene(6);
+        }
+        else
+        {
+            if(coordsPlayer.x==6&& coordsPlayer.x == 2)
+            {
+                SceneManager.LoadScene(5);
+            }
+        }
     }
 
     public int CambiarTiempos(bool des1, bool des2)
