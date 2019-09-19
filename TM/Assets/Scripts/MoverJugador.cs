@@ -200,7 +200,7 @@ public class MoverJugador : MonoBehaviour
 
     IEnumerator EsperarCambio()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         PhotonNetwork.LoadLevel("Instr. #1");
         PhotonNetwork.LeaveRoom();
     }

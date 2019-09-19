@@ -15,7 +15,6 @@ public class ControlTiempoInterfaz : MonoBehaviour
     public Tiempo tiempo;
 
     private CoordsPlayer coordsPlayer;
-
     public DecisionesTomadas decisionesTomadas;
 
     public Puntajes puntajes;
@@ -77,7 +76,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
         else
         {
             Debug.Log(GameObject.FindGameObjectsWithTag("Player").Length);
-            if (GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x == 6 && coordsPlayer.x == 2)
+            if (decisionesTomadas.pos>1&& (GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x == 6 && coordsPlayer.x == 2))
             {
                 PhotonNetwork.LoadLevel("Ganar");
                 PhotonNetwork.LeaveRoom();
