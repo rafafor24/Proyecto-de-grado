@@ -85,7 +85,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 PhotonNetwork.LoadLevel("Ganar");
                 PhotonNetwork.LeaveRoom();
             }
-            else if(coordsPlayer.x == 6 && coordsPlayer.x == 2))
+            else if(coordsPlayer.x == 6 && coordsPlayer.x == 2)
             {
                 PhotonNetwork.LoadLevel("Ganar");
                 PhotonNetwork.LeaveRoom();
