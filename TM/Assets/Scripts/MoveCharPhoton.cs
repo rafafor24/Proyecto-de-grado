@@ -83,7 +83,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
         if (coords.decisionId != -1)
         {
-            decision.text = dec[ml.decAct-2].sentences[coords.decisionId];
+            decision.text = dec[0].sentences[coords.decisionId];//ml.decAct-1
         }
     }
 
@@ -122,7 +122,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
                 PhotonNetwork.LeaveRoom();
             }*/
 
-            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[ml.decAct-2].sentences[tal];
+            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[0].sentences[tal];
 
             if (decisionesTomadas.pos == -1)
             {

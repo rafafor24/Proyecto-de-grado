@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Desiciones3
   m_EditorClassIdentifier: 
   name: 
-  sentences: []
+  sentences:
+  - XY
+  - XX
