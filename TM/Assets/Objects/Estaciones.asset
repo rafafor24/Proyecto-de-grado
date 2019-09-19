@@ -15,7 +15,7 @@ MonoBehaviour:
   x: 7
   y: 3
   stationsNames:
-  - Q
+  - Portal Norte
   - W
   - E
   - R
