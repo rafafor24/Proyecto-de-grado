@@ -1964,4 +1964,4 @@ MonoBehaviour:
   des2: {fileID: 1505246174}
   countdown: {fileID: 911161217}
   desFinal: {fileID: 490479005}
-  timeLimit: 20
+  timeLimit: 10

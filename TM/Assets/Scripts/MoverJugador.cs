@@ -86,7 +86,7 @@ public class MoverJugador : MonoBehaviour
                 //ej.jugar[0] = false;
                 //ej.jugar[1] = false;
                 ej.mostrarAviso = false;
-                PhotonNetwork.LoadLevel("Instr. #1");
+                PhotonNetwork.LoadLevel("Instr. #2");
                 PhotonNetwork.LeaveRoom();
             }
         }
@@ -202,7 +202,7 @@ public class MoverJugador : MonoBehaviour
     IEnumerator EsperarCambio()
     {
         yield return new WaitForSeconds(3);
-        PhotonNetwork.LoadLevel("Instr. #1");
+        PhotonNetwork.LoadLevel("Instr. #2");
         PhotonNetwork.LeaveRoom();
     }
 }

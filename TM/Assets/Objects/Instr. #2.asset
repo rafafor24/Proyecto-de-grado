@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d64d512755b4c84da58264d8f093768, type: 3}
-  m_Name: Dialogue 2 minijuego
+  m_Name: 'Instr. #2'
   m_EditorClassIdentifier: 
   name: Instrucciones!
   sentences:
