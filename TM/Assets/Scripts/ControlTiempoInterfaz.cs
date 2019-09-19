@@ -14,16 +14,19 @@ public class ControlTiempoInterfaz : MonoBehaviour
     public TextMeshProUGUI timeActual;
     public Tiempo tiempo;
 
-    public CoordsPlayer coordsPlayer;
+    private CoordsPlayer coordsPlayer;
 
     public DecisionesTomadas decisionesTomadas;
 
     public Puntajes puntajes;
+    private MenuLogic ml;
 
     //True Hizo Fila
 
     private void Start()
     {
+        ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
+        coordsPlayer = ml.getCoords();
         if (decisionesTomadas.pos == -1)
         {
             ChangeMaxTime(15);
@@ -93,6 +96,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
         tiempo.ActualTime = tiempo.ActualTime - time;
         timeActual.SetText(tiempo.ActualTime.ToString());
         sliderTiempo.value = tiempo.ActualTime;
+        Debug.Log(tiempo.ActualTime);
         if (tiempo.ActualTime <= 0)
         {
             SceneManager.LoadScene(6);
