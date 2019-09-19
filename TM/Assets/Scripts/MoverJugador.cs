@@ -22,6 +22,7 @@ public class MoverJugador : MonoBehaviour
     
 
     public GameObject meta;
+
     public bool metaBool=false;
 
     public int id;
@@ -30,11 +31,23 @@ public class MoverJugador : MonoBehaviour
     private CoordsPlayer coords;
 
     private MenuLogic ml;
+
+    private EsperarJugador ej;
+    private GameObject avisoEsperarJugador;
+
     // Start is called before the first frame update
     void Start()
     {
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coords = ml.getCoords();
+        ej = ml.GetEsperarJugador();
+        ej.jugar[0] = false;
+        ej.jugar[1] = false;
+
+        avisoEsperarJugador = GameObject.Find("EsperaJugador");
+        avisoEsperarJugador.transform.localScale = new Vector3(0, 0, 0);
+        
+
         seleccionado = false;
         moving = false;
         stationId= (StationsId)GetComponent("StationsId");
@@ -54,7 +67,30 @@ public class MoverJugador : MonoBehaviour
     void Update()
     {
         jugador = GameObject.FindGameObjectWithTag("Player") ? GameObject.FindGameObjectWithTag("Player") : new GameObject();
-        
+        avisoEsperarJugador = GameObject.Find("EsperaJugador");
+
+        /*
+        if (ml.esperarJugador.jugar[0] && ml.esperarJugador.jugar[1] && seleccionado)
+        {
+            Debug.Log("carga el minijuego");
+            ml.esperarJugador.jugar[0] = false;
+            ml.esperarJugador.jugar[1] = false;
+            PhotonNetwork.LoadLevel("Instr. #1");
+            PhotonNetwork.LeaveRoom();
+        }*/
+
+        if (ej.mostrarAviso)
+        {
+            if (ej.jugar[0] && ej.jugar[1])
+            {
+                //ej.jugar[0] = false;
+                //ej.jugar[1] = false;
+                ej.mostrarAviso = false;
+                PhotonNetwork.LoadLevel("Instr. #1");
+                PhotonNetwork.LeaveRoom();
+            }
+        }
+
         if (id== coords.estId)
         {
             Mover();
@@ -118,9 +154,27 @@ public class MoverJugador : MonoBehaviour
         if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
             || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
         {
+
             seleccionado = true;
-            PhotonNetwork.LoadLevel("Instr. #1");
-            PhotonNetwork.LeaveRoom();
+            ej.jugar[0] = true;
+            
+
+            if (ej.jugar[0] && !ej.jugar[1])
+            {
+                ej.mostrarAviso = true;
+                avisoEsperarJugador.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (ej.jugar[0] && ej.jugar[1])
+            {
+                //ej.jugar[0] = false;
+                //ej.jugar[1] = false;
+                ej.mostrarAviso = false;
+                PhotonNetwork.LoadLevel("Instr. #1");
+                StartCoroutine(esperarCambio());
+                PhotonNetwork.LeaveRoom();
+            }
+
+            
         }
     }
 
@@ -140,5 +194,10 @@ public class MoverJugador : MonoBehaviour
     void OnEnable()
     {
         
+    }
+
+    IEnumerator esperarCambio()
+    {
+        yield return new WaitForSeconds(5);
     }
 }

@@ -20,6 +20,8 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public Tiempo tiempo;
 
+    public EsperarJugador esperarJugador;
+
     private void Awake()
     {
         coordsPlayer1.x = 2;
@@ -40,6 +42,10 @@ public class MenuLogic : Photon.MonoBehaviour
         decisionesTomadas.otro[0] = -1;
         decisionesTomadas.otro[1] = -1;
         decisionesTomadas.otro[2] = -1;
+
+        esperarJugador.jugar[0] = false;
+        esperarJugador.jugar[1] = false;
+        esperarJugador.mostrarAviso = false;
 
         decisionesTomadas.calcular[0] = false;
         decisionesTomadas.calcular[1] = false;
@@ -145,5 +151,10 @@ public class MenuLogic : Photon.MonoBehaviour
         {
             coordsPlayer2.decisionId = decId;
         }
+    }
+
+    public EsperarJugador GetEsperarJugador()
+    {
+        return esperarJugador;
     }
 }

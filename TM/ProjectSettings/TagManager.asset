@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Beam
   - Buttons
+  - EsperarJugador
   layers:
   - Default
   - TransparentFX

@@ -30,6 +30,8 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     private MenuLogic ml;
 
+    private EsperarJugador ej;
+
     private bool guardado = false;
 
     private void Start()
@@ -37,6 +39,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         decision = GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>();
         coords = ml.getCoords();
+        ej = ml.GetEsperarJugador();
         transform.position = new Vector3(coords.x * 7, coords.y * 7, 0);
     }
 
@@ -93,24 +96,38 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
             stream.SendNext(transform.position);
             stream.SendNext(coords.decisionId);
+            stream.SendNext(ej.jugar[0]);
 
         }
         else
         {
             selfPos = (Vector3)stream.ReceiveNext();
             int tal = (int)stream.ReceiveNext();
+            bool otroJugar = (bool)stream.ReceiveNext();
+
+            ej.jugar[1] = otroJugar;
+
+            /*if (ej.jugar[0] && ej.jugar[1])
+            {
+                ej.jugar[0] = false;
+                ej.jugar[1] = false;
+                ej.mostrarAviso = false;
+                PhotonNetwork.LoadLevel("Instr. #1");
+                PhotonNetwork.LeaveRoom();
+            }*/
+
             GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec.sentences[tal];
 
             if (decisionesTomadas.pos == -1)
             {
                 decisionesTomadas.pos++;
-                Debug.Log("Entra al if inicial");
+                //Debug.Log("Entra al if inicial");
             }
             if (decisionesTomadas.pos < 3 && !guardado
                 && tal != -1 && coords.decisionId != -1 &&
                 decisionesTomadas.mias[decisionesTomadas.pos] == -1 && decisionesTomadas.otro[decisionesTomadas.pos] == -1)
             {
-                Debug.Log("Entra a asignar decisiones en el espacio: " + decisionesTomadas.pos);
+                //Debug.Log("Entra a asignar decisiones en el espacio: " + decisionesTomadas.pos);
                 decisionesTomadas.mias[decisionesTomadas.pos] = tal;
                 decisionesTomadas.otro[decisionesTomadas.pos] = coords.decisionId;
                 decisionesTomadas.calcular[decisionesTomadas.pos] = true;
