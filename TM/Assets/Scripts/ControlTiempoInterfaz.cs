@@ -99,13 +99,15 @@ public class ControlTiempoInterfaz : MonoBehaviour
         Debug.Log(tiempo.ActualTime);
         if (tiempo.ActualTime <= 0)
         {
-            SceneManager.LoadScene(6);
+            PhotonNetwork.LoadLevel("Perder");
+            PhotonNetwork.LeaveRoom();
         }
         else
         {
-            if(coordsPlayer.x==6&& coordsPlayer.x == 2)
+            if(GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x==6&& coordsPlayer.x == 2)
             {
-                SceneManager.LoadScene(5);
+                PhotonNetwork.LoadLevel("Ganar");
+                PhotonNetwork.LeaveRoom();
             }
         }
     }
