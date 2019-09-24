@@ -103,6 +103,7 @@ public class MenuLogic : Photon.MonoBehaviour
     public void joinOrCreateRoomQuick()
     {
         initialRoomName = null;
+        player1 = true;
         Debug.Log("joinOrCreateRoomQuick");
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
@@ -114,6 +115,7 @@ public class MenuLogic : Photon.MonoBehaviour
     void OnPhotonRandomJoinFailed()
     {
         Debug.Log("OnPhotonRandomJoinFailed");
+        player1 = false;
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         PhotonNetwork.CreateRoom(null,roomOptions,null); //maxPlayer limit can be any amount

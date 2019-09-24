@@ -145,7 +145,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
     private void OnDestroy()
     {
         //decisionesTomadas.pos += 1;
-        Debug.Log(decisionesTomadas.pos);
+
     }
 
     public void ChangeTrigger(string trigger)
