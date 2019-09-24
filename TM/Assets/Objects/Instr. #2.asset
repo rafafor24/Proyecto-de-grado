@@ -21,8 +21,8 @@ MonoBehaviour:
   - "Tienes 2 opciones: alertar a la persona que est\xE1 siendo robada o no intervenir.
     El otro jugador tiene las mismas opciones."
   - "Si no intervienes y el otro jugador alerta la situaci\xF3n solo tardaras 1 minuto
-    esperando y el otro jugador 10."
-  - Si alertas y el otro jugador no interviene tardaras 10 minutos esperando y el
-    otro jugador solo 1 minuto
+    esperando y el otro jugador 8."
+  - Si alertas y el otro jugador no interviene tardaras 8 minutos esperando y el otro
+    jugador solo 1 minuto
   - Si ambos jugadores no intervienen tardaran 6 minutos cada uno y si ambos jugadores
     alertan sobre el ladron se tardaran 3 minutos esperando.

@@ -35,12 +35,15 @@ public class MoverJugador : MonoBehaviour
     private EsperarJugador ej;
     private GameObject avisoEsperarJugador;
 
+    private DecisionesTomadas decisionesTomadas;
+
     // Start is called before the first frame update
     void Start()
     {
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coords = ml.getCoords();
         ej = ml.GetEsperarJugador();
+        decisionesTomadas = ml.GetDecisionesTomadas();
         ej.jugar[0] = false;
         ej.jugar[1] = false;
 
@@ -69,25 +72,28 @@ public class MoverJugador : MonoBehaviour
         jugador = GameObject.FindGameObjectWithTag("Player") ? GameObject.FindGameObjectWithTag("Player") : new GameObject();
         avisoEsperarJugador = GameObject.Find("EsperaJugador");
 
-        /*
-        if (ml.esperarJugador.jugar[0] && ml.esperarJugador.jugar[1] && seleccionado)
-        {
-            Debug.Log("carga el minijuego");
-            ml.esperarJugador.jugar[0] = false;
-            ml.esperarJugador.jugar[1] = false;
-            PhotonNetwork.LoadLevel("Instr. #1");
-            PhotonNetwork.LeaveRoom();
-        }*/
 
         if (ej.mostrarAviso)
         {
             if (ej.jugar[0] && ej.jugar[1])
             {
-                //ej.jugar[0] = false;
-                //ej.jugar[1] = false;
                 ej.mostrarAviso = false;
-                PhotonNetwork.LoadLevel("Instr. #2");
-                PhotonNetwork.LeaveRoom();
+                Debug.Log(decisionesTomadas.pos);
+                if (decisionesTomadas.pos == -1)
+                {
+                    PhotonNetwork.LoadLevel("Instr. #1");
+                    PhotonNetwork.LeaveRoom();
+                }
+                else if (decisionesTomadas.pos == 0)
+                {
+                    PhotonNetwork.LoadLevel("Instr. #2");
+                    PhotonNetwork.LeaveRoom();
+                }
+                else
+                {
+                    PhotonNetwork.LoadLevel("Instr. #3");
+                    PhotonNetwork.LeaveRoom();
+                }
             }
         }
 
@@ -121,8 +127,6 @@ public class MoverJugador : MonoBehaviour
 
     public void Mover()
     {
-        //if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
-        //    || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1))))){
             if (Mathf.Sqrt(Mathf.Pow((jugador.transform.position.x - transform.position.x), 2)) >
                                Mathf.Sqrt(Mathf.Pow((jugador.transform.position.y - transform.position.y), 2)))
             {
@@ -147,7 +151,6 @@ public class MoverJugador : MonoBehaviour
                 }
             }
             moving = true;
-       // }
         }
     public void Click()
     {
@@ -163,18 +166,11 @@ public class MoverJugador : MonoBehaviour
             {
                 ej.mostrarAviso = true;
                 avisoEsperarJugador.transform.localScale = new Vector3(1, 1, 1);
-                //StartCoroutine(EsperarCambio());
-                //PhotonNetwork.LoadLevel("Instr. #1");
-                //PhotonNetwork.LeaveRoom();
             }
             else if (ej.jugar[0] && ej.jugar[1])
             {
-                //ej.jugar[0] = false;
-                //ej.jugar[1] = false;
                 ej.mostrarAviso = false;
                 StartCoroutine(EsperarCambio());
-                //PhotonNetwork.LoadLevel("Instr. #1");
-                //PhotonNetwork.LeaveRoom();
             }
 
             
@@ -202,7 +198,21 @@ public class MoverJugador : MonoBehaviour
     IEnumerator EsperarCambio()
     {
         yield return new WaitForSeconds(3);
-        PhotonNetwork.LoadLevel("Instr. #1");//+ml.decAct
-        PhotonNetwork.LeaveRoom();
+        Debug.Log(decisionesTomadas.pos);
+        if (decisionesTomadas.pos==-1)
+        {
+            PhotonNetwork.LoadLevel("Instr. #1");
+            PhotonNetwork.LeaveRoom();
+        }else if (decisionesTomadas.pos == 0)
+        {
+            PhotonNetwork.LoadLevel("Instr. #2");
+            PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            PhotonNetwork.LoadLevel("Instr. #3");
+            PhotonNetwork.LeaveRoom();
+        }
+
     }
 }

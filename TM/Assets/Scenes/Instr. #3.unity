@@ -808,7 +808,7 @@ MonoBehaviour:
   nameText: {fileID: 982731837}
   dialogueText: {fileID: 537301493}
   animator: {fileID: 189903722}
-  dialogue: {fileID: 11400000, guid: 9cd40142f08f2444e9915f528e1ccf36, type: 2}
+  dialogue: {fileID: 11400000, guid: 2dd2e29c81465e844ac4201cf27b4c00, type: 2}
 --- !u!4 &1268676385
 Transform:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Juego #2: Intervenci\xF3n"
+  m_Text: 'Juego #3: Ayuda'
 --- !u!222 &1748107725
 CanvasRenderer:
   m_ObjectHideFlags: 0

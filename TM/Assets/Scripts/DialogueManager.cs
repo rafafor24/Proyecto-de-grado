@@ -19,10 +19,13 @@ public class DialogueManager : MonoBehaviour
 
     private MenuLogic ml;
 
+    private DecisionesTomadas decisiones;
+
     // Use this for initialization
     void Start()
     {
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
+        decisiones = ml.GetDecisionesTomadas();
         sentences = new Queue<string>();
         StartDialogue();
     }
@@ -68,7 +71,23 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        PhotonNetwork.LoadLevel("Decision #1");//+ml.decAct
+        PhotonNetwork.LoadLevel("Decision #1");
+        /*Debug.Log(decisiones.pos);
+        if (decisiones.pos == -1)
+        {
+            PhotonNetwork.LoadLevel("Decision #1");
+            PhotonNetwork.LeaveRoom();
+        }
+        else if (decisiones.pos == 0)
+        {
+            PhotonNetwork.LoadLevel("Decision #2");
+            PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            PhotonNetwork.LoadLevel("Decision #3");
+            PhotonNetwork.LeaveRoom();
+        }*/
     }
 
 }

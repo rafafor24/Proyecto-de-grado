@@ -108,7 +108,6 @@ public class MenuLogic : Photon.MonoBehaviour
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         PhotonNetwork.JoinRandomRoom();
-        //PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, TypedLobby.Default);
         disableMenuUI();
     }
 
@@ -124,14 +123,11 @@ public class MenuLogic : Photon.MonoBehaviour
     public void disableMenuUI()
     {
         PhotonNetwork.LoadLevel("Map");
-        //decisionesTomadas.pos += 1;
     }
 
     private void OnJoinedRoom()
     {
         disableMenuUI();
-        //Debug.Log(PhotonNetwork.room.Name);
-        //Debug.Log("Conectado a la sala" + PhotonNetwork.GetRoomList().Length);
     }
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
@@ -171,7 +167,6 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public void updateCoords(CoordsPlayer player)
     {
-        //Debug.Log("x: " + player.x +" y: "+ player.y +" dec: "+ player.decisionId +" est: "+ player.estId);
         if (player1)
         {
             coordsPlayer1 = player;
@@ -180,10 +175,6 @@ public class MenuLogic : Photon.MonoBehaviour
         {
             coordsPlayer2 = player;
         }
-
-        //Debug.Log("x: " + coordsPlayer1.x + " y: " + coordsPlayer1.y + " dec: " + coordsPlayer1.decisionId + " est: " + coordsPlayer1.estId);
-        //Debug.Log("x: " + coordsPlayer2.x + " y: " + coordsPlayer2.y + " dec: " + coordsPlayer2.decisionId + " est: " + coordsPlayer2.estId);
-
     }
 
     public void updateCoordXPlayer(int decId)
@@ -201,5 +192,10 @@ public class MenuLogic : Photon.MonoBehaviour
     public EsperarJugador GetEsperarJugador()
     {
         return esperarJugador;
+    }
+
+    public DecisionesTomadas GetDecisionesTomadas()
+    {
+        return decisionesTomadas;
     }
 }
