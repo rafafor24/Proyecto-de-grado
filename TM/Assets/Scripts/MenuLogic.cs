@@ -100,7 +100,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public void joinOrCreateRoomQuick()
     {
-        initialRoomName = "QuickGame";
+        initialRoomName = "";
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, TypedLobby.Default);
