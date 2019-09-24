@@ -98,13 +98,24 @@ public class MenuLogic : Photon.MonoBehaviour
         disableMenuUI();
     }
 
+    
+
     public void joinOrCreateRoomQuick()
     {
         initialRoomName = null;
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
-        PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinRandomRoom();
+        //PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, TypedLobby.Default);
         disableMenuUI();
+    }
+
+    void OnPhotonRandomJoinFailed()
+    {
+        Debug.Log("OnPhotonRandomJoinFailed");
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = 2;
+        PhotonNetwork.CreateRoom(null,roomOptions,null); //maxPlayer limit can be any amount
     }
 
     public void disableMenuUI()
