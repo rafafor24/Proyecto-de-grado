@@ -25,8 +25,8 @@ public class TextoDecision : MonoBehaviour
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coords = ml.getCoords();
         decidido = false;
-        des1.text = decisiones.sentences[0];
-        des2.text = decisiones.sentences[1];
+        des1.text = decisiones.sentences[1];
+        des2.text = decisiones.sentences[0];
     }
 
     // Update is called once per frame
