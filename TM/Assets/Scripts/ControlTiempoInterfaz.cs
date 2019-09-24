@@ -70,7 +70,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 decisionesTomadas.pos++;
             }
         }
-        Debug.Log(tiempo.ActualTime);
+
         if (tiempo.ActualTime <= 0)
         {
             coordsPlayer.perdio = true;

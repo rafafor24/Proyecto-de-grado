@@ -23,8 +23,12 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public EsperarJugador esperarJugador;
 
+    private MenuPrincipal mp;
+
     private void Awake()
     {
+        mp= GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
+
         coordsPlayer1.x = 2;
         coordsPlayer1.y = 2;
         coordsPlayer1.estId = -1;
@@ -62,6 +66,11 @@ public class MenuLogic : Photon.MonoBehaviour
             DontDestroyOnLoad(this.transform);
         }
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
+    }
+
+    public void cargarMenuPrincipal()
+    {
+        mp.ClickMenuPrincipal();
     }
 
     public void createNewRoom()

@@ -1089,19 +1089,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4180201520739451105}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &519420029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e522a0ed4900984695f57bd124a55d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugador: {fileID: 0}
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3730,7 +3717,6 @@ MonoBehaviour:
   maxTime: {fileID: 1230186559}
   timeActual: {fileID: 537150869}
   tiempo: {fileID: 11400000, guid: f6aea03cdbf74f84aba0e0bcd6ff4752, type: 2}
-  coordsPlayer: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
   decisionesTomadas: {fileID: 11400000, guid: a45c15813f37c3f4798f82bd611bc138, type: 2}
   puntajes: {fileID: 11400000, guid: 9d96b38a7de4dce4080b3cc5306c7a15, type: 2}
 --- !u!114 &2117853129
