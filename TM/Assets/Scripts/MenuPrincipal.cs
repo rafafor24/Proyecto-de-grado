@@ -12,7 +12,8 @@ public class MenuPrincipal : MonoBehaviour
 
     private void Awake()
     {
-        if (GameObject.FindGameObjectsWithTag("MainMenu").Length==1){
+        //if (GameObject.FindGameObjectsWithTag("MainMenu").Length==1)
+        {
             DontDestroyOnLoad(this.transform);
         }
         

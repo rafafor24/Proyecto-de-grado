@@ -8,6 +8,8 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public GameObject mainPlayer;
 
+    public GameObject mainPlayer2;
+
     public CoordsPlayer coordsPlayer1;//
 
     public CoordsPlayer coordsPlayer2;//
@@ -61,7 +63,7 @@ public class MenuLogic : Photon.MonoBehaviour
         tiempo.MaxTime = 15;
         tiempo.ActualTime = 15;
 
-        //if (GameObject.FindGameObjectsWithTag("MenuLogic").Length == 1)
+        if (GameObject.FindGameObjectsWithTag("MenuLogic").Length == 1)
         {
             DontDestroyOnLoad(this.transform);
         }
@@ -131,7 +133,16 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private void spawnPlayer()
     {
-        PhotonNetwork.Instantiate(mainPlayer.name, mainPlayer.transform.position, mainPlayer.transform.rotation, 0);
+        if (player1)
+        {
+            Debug.Log("PrefabManPhoton");
+            PhotonNetwork.Instantiate(mainPlayer.name, mainPlayer.transform.position, mainPlayer.transform.rotation, 0);
+        }
+        else
+        {
+            Debug.Log("PrefabKnightPhoton");
+            PhotonNetwork.Instantiate(mainPlayer2.name, mainPlayer2.transform.position, mainPlayer2.transform.rotation, 0);
+        }
     }
 
     public CoordsPlayer getCoords()

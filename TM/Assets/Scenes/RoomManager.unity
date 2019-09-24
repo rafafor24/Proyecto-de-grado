@@ -871,6 +871,8 @@ MonoBehaviour:
   photonB: {fileID: 117495578}
   mainPlayer: {fileID: 2064398047259333968, guid: b3ace36cbe3d19b48b2cad3e7b739ced,
     type: 3}
+  mainPlayer2: {fileID: 2021307156441875273, guid: 7e3a87ba2f18f2945b7731be84800dee,
+    type: 3}
   coordsPlayer1: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
   coordsPlayer2: {fileID: 11400000, guid: f4109fef2520a844da39d8967333f580, type: 2}
   decAct: 1
