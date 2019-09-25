@@ -77,11 +77,11 @@ public class DialogueManager : MonoBehaviour
         {
             PhotonNetwork.LoadLevel("Decision #1");
         }
-        else if (decisiones.pos == 0)
+        else if (decisiones.pos == 1)
         {
             PhotonNetwork.LoadLevel("Decision #2");
         }
-        else
+        else if (decisiones.pos == 2)
         {
             PhotonNetwork.LoadLevel("Decision #3");
         }
