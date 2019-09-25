@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 2508654979368588827}
   - component: {fileID: 5844079706565622094}
   m_Layer: 0
-  m_Name: "TransMilenio_S._A._Bogot\xE1_logo.svg"
+  m_Name: TM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 8827524618747554125}
   - component: {fileID: 1696575849429798263}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
