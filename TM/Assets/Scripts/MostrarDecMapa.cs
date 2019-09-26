@@ -6,23 +6,19 @@ using TMPro;
 public class MostrarDecMapa : MonoBehaviour
 {
     public TextMeshProUGUI miDecision,suDecision;
+
     public DecisionesTomadas lasDecisiones;
-    private CoordsPlayer misCoords, susCoords;
 
     public Dialogue[] decisionesTexto;
-    private MenuLogic ml;
 
     // Start is called before the first frame update
     void Start()
     {
-        ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
-        misCoords = ml.getCoords();
-        susCoords = ml.GetCoordsOther();
         Debug.Log("LasDecisiones.pos:"+ lasDecisiones.pos);
-        Debug.Log("misCoords.decisionId" + misCoords.decisionId);
-        Debug.Log("susCoords.decisionId" + susCoords.decisionId);
-        Debug.Log("Mi:"+ decisionesTexto[lasDecisiones.pos].sentences[misCoords.decisionId]);
-        Debug.Log("Su:"+ decisionesTexto[lasDecisiones.pos].sentences[susCoords.decisionId]);
+        Debug.Log("misCoords.decisionId" + lasDecisiones.mias[lasDecisiones.pos]);
+        Debug.Log("susCoords.decisionId" + lasDecisiones.otro[lasDecisiones.pos]);
+        Debug.Log("Mi:"+ decisionesTexto[lasDecisiones.pos].sentences[lasDecisiones.mias[lasDecisiones.pos]]);
+        Debug.Log("Su:"+ decisionesTexto[lasDecisiones.pos].sentences[lasDecisiones.otro[lasDecisiones.pos]]);
 
     }
 
@@ -31,8 +27,11 @@ public class MostrarDecMapa : MonoBehaviour
     {
         if (lasDecisiones.pos != -1)
         {
-            miDecision.text = decisionesTexto[lasDecisiones.pos].sentences[misCoords.decisionId];
-            suDecision.text = decisionesTexto[lasDecisiones.pos].sentences[susCoords.decisionId];
+            Debug.Log("EnIF");
+            Debug.Log("Mi:" + decisionesTexto[lasDecisiones.pos].sentences[lasDecisiones.mias[lasDecisiones.pos]]);
+            Debug.Log("Su:" + decisionesTexto[lasDecisiones.pos].sentences[lasDecisiones.otro[lasDecisiones.pos]]);
+            miDecision.text = decisionesTexto[lasDecisiones.pos].sentences[lasDecisiones.mias[lasDecisiones.pos]];
+            suDecision.text = decisionesTexto[lasDecisiones.pos].sentences[lasDecisiones.otro[lasDecisiones.pos]];
         }
         
     }
