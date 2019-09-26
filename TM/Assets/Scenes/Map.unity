@@ -1159,6 +1159,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386875137}
   m_CullTransparentMesh: 0
+--- !u!1 &406172893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 406172894}
+  - component: {fileID: 406172895}
+  m_Layer: 0
+  m_Name: ActualizadorDecisiones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &406172894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406172893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 669.7377, y: 137.65843, z: -238.04504}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &406172895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406172893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fad82b18bb2be4d9fc86c968064491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miDecision: {fileID: 239750515}
+  suDecision: {fileID: 386875139}
+  lasDecisiones: {fileID: 11400000, guid: a45c15813f37c3f4798f82bd611bc138, type: 2}
+  decisionesTexto:
+  - {fileID: 11400000, guid: 3dcf7387bdfdb1348ba2ee13a39c9a63, type: 2}
+  - {fileID: 11400000, guid: cecef7dff8542d9458b12d30cf161a04, type: 2}
+  - {fileID: 11400000, guid: 1e4acff92cb90874f9753041fb0b6a7b, type: 2}
 --- !u!1 &450434539
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     public Animator animator;
 
-    private TextMeshProUGUI decision;
+    //private TextMeshProUGUI decision;
 
     public DecisionesTomadas decisionesTomadas;
 
@@ -39,7 +39,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
     private void Start()
     {
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
-        decision = GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>();
+        //decision = GameObject.Find("DecisionActual").GetComponent<TextMeshProUGUI>();
         coords = ml.getCoords();
         coordsOther = ml.GetCoordsOther();
         ej = ml.GetEsperarJugador();
@@ -83,7 +83,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
         if (coords.decisionId != -1)
         {
-            decision.text = dec[posInterna].sentences[coords.decisionId];//ml.decAct-1
+           // decision.text = dec[posInterna].sentences[coords.decisionId];//ml.decAct-1
         }
     }
 
@@ -115,9 +115,9 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             ej.jugar[1] = otroJugar;
 
            
-            int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
-            decision.text = dec[posInterna].sentences[coords.decisionId];
-            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[posInterna].sentences[tal];
+            //int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
+            //decision.text = dec[posInterna].sentences[coords.decisionId];
+            //GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[posInterna].sentences[tal];
 
             if (decisionesTomadas.pos == -1)
             {

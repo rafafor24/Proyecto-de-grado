@@ -37,7 +37,7 @@ public class TextoDecision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(decTomadas.pos);
+        
         if (decTomadas.pos == -1)
         {
             decmala.text = decisiones.sentences[0];
