@@ -83,18 +83,18 @@ public class MoverJugador : MonoBehaviour
             if (ej.jugar[0] && ej.jugar[1])
             {
                 ej.mostrarAviso = false;
-                Debug.Log("click segundo"+decisionesTomadas.pos);
+                
                 if (decisionesTomadas.pos == -1)
                 {
                     PhotonNetwork.LoadLevel("Instr. #1");
                     PhotonNetwork.LeaveRoom();
                 }
-                else if (decisionesTomadas.pos == 0)
+                else if (decisionesTomadas.pos == 1)
                 {
                     PhotonNetwork.LoadLevel("Instr. #2");
                     PhotonNetwork.LeaveRoom();
                 }
-                else if (decisionesTomadas.pos == 1)
+                else if (decisionesTomadas.pos == 2)
                 {
                     PhotonNetwork.LoadLevel("Instr. #3");
                     PhotonNetwork.LeaveRoom();
@@ -179,12 +179,15 @@ public class MoverJugador : MonoBehaviour
                         
 
             if (ej.jugar[0] && !ej.jugar[1])
+
             {
+                Debug.Log("click primero" + decisionesTomadas.pos);
                 ej.mostrarAviso = true;
                 avisoEsperarJugador.transform.localScale = new Vector3(1, 1, 1);
             }
             else if (ej.jugar[0] && ej.jugar[1])
             {
+                Debug.Log("click segundo" + decisionesTomadas.pos);
                 ej.mostrarAviso = false;
                 StartCoroutine(EsperarCambio());
             }
@@ -214,17 +217,16 @@ public class MoverJugador : MonoBehaviour
     IEnumerator EsperarCambio()
     {
         yield return new WaitForSeconds(3);
-        Debug.Log("click primero"+decisionesTomadas.pos);
         if (decisionesTomadas.pos==-1)
         {
             PhotonNetwork.LoadLevel("Instr. #1");
             PhotonNetwork.LeaveRoom();
-        }else if (decisionesTomadas.pos == 0)
+        }else if (decisionesTomadas.pos == 1)
         {
             PhotonNetwork.LoadLevel("Instr. #2");
             PhotonNetwork.LeaveRoom();
         }
-        else if (decisionesTomadas.pos == 1)
+        else if (decisionesTomadas.pos == 2)
         {
             PhotonNetwork.LoadLevel("Instr. #3");
             PhotonNetwork.LeaveRoom();
