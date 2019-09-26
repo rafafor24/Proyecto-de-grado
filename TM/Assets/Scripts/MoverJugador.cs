@@ -116,19 +116,11 @@ public class MoverJugador : MonoBehaviour
         if (moving)
         {
             float step = speed * Time.deltaTime;
+            Vector3 newvector = ml.player1?new Vector3(-1, 0, 0): new Vector3(1, 0, 0);
+                
+            jugador.transform.position = Vector3.MoveTowards(jugador.transform.position, transform.position+newvector, step);            
 
-            if (ml.player1)
-            {
-                Vector3 newvector = new Vector3(-1, 0, 0);
-                jugador.transform.position = Vector3.MoveTowards(jugador.transform.position, transform.position+newvector, step);
-            }
-            else
-            {
-                Vector3 newvector = new Vector3(1, 0, 0);
-                jugador.transform.position = Vector3.MoveTowards(jugador.transform.position, transform.position+newvector, step);
-            }
-
-            if (Vector3.Distance(jugador.transform.position, transform.position) < 0.001f)
+            if (Vector3.Distance(jugador.transform.position, transform.position+newvector) < 0.001f)
             {
                 jugador.GetComponent<MoveCharPhoton>().ChangeTrigger(QUIETO);
                 moving = false;
