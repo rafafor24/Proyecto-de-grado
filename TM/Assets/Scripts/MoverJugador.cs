@@ -83,8 +83,13 @@ public class MoverJugador : MonoBehaviour
             if (ej.jugar[0] && ej.jugar[1])
             {
                 ej.mostrarAviso = false;
-                
+
                 if (decisionesTomadas.pos == -1)
+                {
+                    PhotonNetwork.LoadLevel("Instr. #1");
+                    PhotonNetwork.LeaveRoom();
+                }
+                else if (decisionesTomadas.pos == 0)
                 {
                     PhotonNetwork.LoadLevel("Instr. #1");
                     PhotonNetwork.LeaveRoom();
