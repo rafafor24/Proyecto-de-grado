@@ -395,7 +395,7 @@ RectTransform:
   - {fileID: 1198772827}
   - {fileID: 718952389}
   m_Father: {fileID: 1948113673}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -446,7 +446,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1948113674}
-        m_MethodName: Des1
+        m_MethodName: Des2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1574,7 +1574,7 @@ RectTransform:
   - {fileID: 1581069555}
   - {fileID: 1505246173}
   m_Father: {fileID: 1948113673}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1625,7 +1625,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1948113674}
-        m_MethodName: Des2
+        m_MethodName: Des1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1936,8 +1936,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1243774885}
   - {fileID: 435157280}
+  - {fileID: 1243774885}
   - {fileID: 911161216}
   m_Father: {fileID: 759206926}
   m_RootOrder: 2

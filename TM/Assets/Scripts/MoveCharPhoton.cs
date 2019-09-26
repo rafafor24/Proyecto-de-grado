@@ -111,6 +111,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             bool perdioOtro = (bool)stream.ReceiveNext();
             coordsOther.perdio = perdioOtro;
 
+            Debug.Log("Entra ametodophotonnnnnnn");
             ej.jugar[1] = otroJugar;
 
            
