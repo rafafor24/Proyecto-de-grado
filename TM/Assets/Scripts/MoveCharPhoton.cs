@@ -75,7 +75,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         }
 
     }
-    
+
     private void checkInput()
     {
         var move = new Vector3(Input.GetAxis("Horizontal"), 0);
@@ -112,16 +112,16 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             coordsOther.perdio = perdioOtro;
 
             ej.jugar[1] = otroJugar;
-            
+
+           
+            int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
+            decision.text = dec[posInterna].sentences[coords.decisionId];
+            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[posInterna].sentences[tal];
+
             if (decisionesTomadas.pos == -1)
             {
                 decisionesTomadas.pos++;
             }
-
-            decision.text = dec[decisionesTomadas.pos].sentences[coords.decisionId];
-            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[decisionesTomadas.pos].sentences[tal];
-
-
             if (decisionesTomadas.pos < 3 && !guardado
                 && tal != -1 && coords.decisionId != -1 &&
                 decisionesTomadas.mias[decisionesTomadas.pos] == -1 && decisionesTomadas.otro[decisionesTomadas.pos] == -1)
