@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 718952391}
   - component: {fileID: 718952390}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Mala
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1687,7 +1687,7 @@ GameObject:
   - component: {fileID: 1505246175}
   - component: {fileID: 1505246174}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Buena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1962,8 +1962,8 @@ MonoBehaviour:
   decisiones: {fileID: 11400000, guid: 3dcf7387bdfdb1348ba2ee13a39c9a63, type: 2}
   decisiones2: {fileID: 11400000, guid: cecef7dff8542d9458b12d30cf161a04, type: 2}
   decisiones3: {fileID: 11400000, guid: 1e4acff92cb90874f9753041fb0b6a7b, type: 2}
-  des1: {fileID: 718952390}
-  des2: {fileID: 1505246174}
+  decmala: {fileID: 718952390}
+  decbuena: {fileID: 1505246174}
   countdown: {fileID: 911161217}
   desFinal: {fileID: 490479005}
   timeLimit: 10

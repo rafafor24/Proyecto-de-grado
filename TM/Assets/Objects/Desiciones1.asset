@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tome una desicion
   sentences:
-  - "Colarse\t"
+  - Colarse
   - Hacer la fila

@@ -12,7 +12,7 @@ public class TextoDecision : MonoBehaviour
 
     public Dialogue decisiones3;
 
-    public TextMeshProUGUI des1, des2, countdown;
+    public TextMeshProUGUI decmala, decbuena, countdown;
 
     public GameObject desFinal;
 
@@ -40,26 +40,26 @@ public class TextoDecision : MonoBehaviour
         Debug.Log(decTomadas.pos);
         if (decTomadas.pos == -1)
         {
-            des1.text = decisiones.sentences[0];
-            des2.text = decisiones.sentences[1];
+            decmala.text = decisiones.sentences[0];
+            decbuena.text = decisiones.sentences[1];
         }
         if (decTomadas.pos == 0)
         {
-                des1.text = decisiones.sentences[0];
-                des2.text = decisiones.sentences[1];
+                decmala.text = decisiones.sentences[0];
+                decbuena.text = decisiones.sentences[1];
         }
         if (decTomadas.pos == 1)
         {
             
-                des1.text = decisiones2.sentences[0];
-                des2.text = decisiones2.sentences[1];
+                decmala.text = decisiones2.sentences[0];
+                decbuena.text = decisiones2.sentences[1];
             
             
         }
         if (decTomadas.pos == 2)
         {
-                des1.text = decisiones3.sentences[0];
-                des2.text = decisiones3.sentences[1];
+                decmala.text = decisiones3.sentences[0];
+                decbuena.text = decisiones3.sentences[1];
             
         }
         
@@ -73,7 +73,7 @@ public class TextoDecision : MonoBehaviour
         PlayerPrefs.SetInt("decision", 1);
         gameObject.transform.position = new Vector3(0, -200, 0);
         desFinal.SetActive(true);
-        desFinal.GetComponent<TextMeshProUGUI>().text += des1.text;
+        desFinal.GetComponent<TextMeshProUGUI>().text += decmala.text;
         StartCoroutine(ShowFinalDes());
     }
     public void Des2()
@@ -84,7 +84,7 @@ public class TextoDecision : MonoBehaviour
         PlayerPrefs.SetInt("decision", 2);
         gameObject.transform.position = new Vector3(0, -200, 0);
         desFinal.SetActive(true);
-        desFinal.GetComponent<TextMeshProUGUI>().text += des2.text;
+        desFinal.GetComponent<TextMeshProUGUI>().text += decbuena.text;
         StartCoroutine(ShowFinalDes());
     }
 
