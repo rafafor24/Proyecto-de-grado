@@ -5,8 +5,8 @@ using UnityEngine;
 public class MenuPausa : MonoBehaviour
 {
     public GameObject menupausa;
+    private bool enable;   
 
-    private bool enable;
     public void switchViewMenu()
     {
         if (enable)

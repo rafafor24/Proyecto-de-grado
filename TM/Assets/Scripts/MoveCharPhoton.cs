@@ -80,10 +80,10 @@ public class MoveCharPhoton : Photon.MonoBehaviour
     {
         var move = new Vector3(Input.GetAxis("Horizontal"), 0);
         transform.position += move * moveSpeed * Time.deltaTime;
-
+        int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
         if (coords.decisionId != -1)
         {
-            decision.text = dec[0].sentences[coords.decisionId];//ml.decAct-1
+            decision.text = dec[posInterna].sentences[coords.decisionId];//ml.decAct-1
         }
     }
 
@@ -121,8 +121,8 @@ public class MoveCharPhoton : Photon.MonoBehaviour
                 PhotonNetwork.LoadLevel("Instr. #1");
                 PhotonNetwork.LeaveRoom();
             }*/
-
-            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[0].sentences[tal];
+            int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
+            GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[posInterna].sentences[tal];
 
             if (decisionesTomadas.pos == -1)
             {

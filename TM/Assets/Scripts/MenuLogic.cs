@@ -27,6 +27,12 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private MenuPrincipal mp;
 
+    public GameObject roomExiste;
+
+    private TypedLobby lobbyAmigos = new TypedLobby("LobbyAmigos", LobbyType.Default);
+
+    private TypedLobby lobbyQuick = new TypedLobby("LobbyQuick", LobbyType.Default);
+
     private void Awake()
     {
         mp= GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
@@ -76,10 +82,15 @@ public class MenuLogic : Photon.MonoBehaviour
     }
 
     public void createNewRoom()
-    {
+    {        
+        PhotonNetwork.CreateRoom(photonB.createRoomInput.text, new RoomOptions() { MaxPlayers = 2 }, lobbyAmigos);
         player1 = true;
-        PhotonNetwork.CreateRoom(photonB.createRoomInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
         initialRoomName = photonB.createRoomInput.text;
+    }
+
+    public void OnCreateRoomFailed()
+    {
+        roomExiste.SetActive(true);
     }
 
     public void joinOrCreateRoom()
@@ -87,14 +98,25 @@ public class MenuLogic : Photon.MonoBehaviour
         initialRoomName = photonB.joinRoomInput.text;
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
-        PhotonNetwork.JoinOrCreateRoom(photonB.joinRoomInput.text, roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(photonB.joinRoomInput.text, roomOptions, lobbyAmigos);
     }
 
     public void joinOrCreateRoomAgain()
     {
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
-        PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, TypedLobby.Default);
+
+        if (mp.quickGame)
+        {
+            Debug.Log("LobbyQuick");
+            PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, lobbyQuick);
+        }
+        else
+        {
+            Debug.Log("LobbyAmigos");
+            PhotonNetwork.JoinOrCreateRoom(initialRoomName, roomOptions, lobbyAmigos);
+        }
+        
         disableMenuUI();
     }
 
@@ -102,8 +124,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public void joinOrCreateRoomQuick()
     {
-        initialRoomName = null;
-        player1 = true;
+        player1 = false;
         Debug.Log("joinOrCreateRoomQuick");
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
@@ -114,10 +135,10 @@ public class MenuLogic : Photon.MonoBehaviour
     void OnPhotonRandomJoinFailed()
     {
         Debug.Log("OnPhotonRandomJoinFailed");
-        player1 = false;
+        player1 = true;
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
-        PhotonNetwork.CreateRoom(null,roomOptions,null); //maxPlayer limit can be any amount
+        PhotonNetwork.CreateRoom(null,roomOptions, lobbyQuick); //maxPlayer limit can be any amount
     }
 
     public void disableMenuUI()
@@ -127,6 +148,9 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private void OnJoinedRoom()
     {
+        initialRoomName = PhotonNetwork.room.Name;
+        Debug.Log("Room se llama:"+PhotonNetwork.room.Name);
+        Debug.Log("Lobby se llama:" + PhotonNetwork.lobby.Name);
         disableMenuUI();
     }
 
@@ -135,22 +159,21 @@ public class MenuLogic : Photon.MonoBehaviour
         if (scene.name == "Map")
         {
             spawnPlayer();
-
         }
     }
-
-
 
     private void spawnPlayer()
     {
         if (player1)
         {
             Debug.Log("PrefabManPhoton");
+            //Debug.Log("ConnState:"+PhotonNetwork.connectionState);
             PhotonNetwork.Instantiate(mainPlayer.name, mainPlayer.transform.position, mainPlayer.transform.rotation, 0);
         }
         else
         {
             Debug.Log("PrefabKnightPhoton");
+            //Debug.Log("ConnState:" + PhotonNetwork.connectionState);
             PhotonNetwork.Instantiate(mainPlayer2.name, mainPlayer2.transform.position, mainPlayer2.transform.rotation, 0);
         }
     }

@@ -21,7 +21,16 @@ public class Zoom : MonoBehaviour
             float CamX = laCamara.transform.position.x;                      //Get current camera postition for the offset
             float CamY = laCamara.transform.position.y;                      //^
             float CamZ = laCamara.transform.position.z;                      //^
-            laCamara.transform.position = new Vector3(CamX + X, CamY + Y, CamZ + Z);//Move the main camera    
+            float newZ = CamZ + Z;
+            if (newZ > -3)//Limite zooms
+            {
+                newZ = -3;
+            }
+            else if (newZ < -23)
+            {
+                newZ = -23;
+            }
+            laCamara.transform.position = new Vector3(CamX + X, CamY + Y, newZ);//Move the main camera    
         }
     
     }

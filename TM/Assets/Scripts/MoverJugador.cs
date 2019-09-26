@@ -37,9 +37,12 @@ public class MoverJugador : MonoBehaviour
 
     private DecisionesTomadas decisionesTomadas;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        animator = transform.GetChild(0).GetComponent<Animator>();
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coords = ml.getCoords();
         ej = ml.GetEsperarJugador();
@@ -54,6 +57,8 @@ public class MoverJugador : MonoBehaviour
         seleccionado = false;
         moving = false;
         stationId= (StationsId)GetComponent("StationsId");
+
+        
     }
 
     public void setId(int i)
@@ -122,6 +127,17 @@ public class MoverJugador : MonoBehaviour
 
 
             }
+        }
+
+        if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
+            || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
+        {
+            animator.SetBool("parpadear", true);
+        }
+        else
+        {
+            animator.SetBool("parpadear", false);
+
         }
     }
 
