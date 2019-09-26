@@ -8,6 +8,10 @@ public class TextoDecision : MonoBehaviour
 {
     public Dialogue decisiones;
 
+    public Dialogue decisiones2;
+
+    public Dialogue decisiones3;
+
     public TextMeshProUGUI des1, des2, countdown;
 
     public GameObject desFinal;
@@ -18,6 +22,8 @@ public class TextoDecision : MonoBehaviour
 
     private CoordsPlayer coords;
 
+    private DecisionesTomadas decTomadas;
+
     private MenuLogic ml;
     // Start is called before the first frame update
     void Start()
@@ -25,13 +31,37 @@ public class TextoDecision : MonoBehaviour
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coords = ml.getCoords();
         decidido = false;
-        des1.text = decisiones.sentences[0];
-        des2.text = decisiones.sentences[1];
+        decTomadas = ml.GetDecisionesTomadas();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(decTomadas.pos);
+        if (decTomadas.pos == -1)
+        {
+            des1.text = decisiones.sentences[0];
+            des2.text = decisiones.sentences[1];
+        }
+        if (decTomadas.pos == 0)
+        {
+                des1.text = decisiones.sentences[0];
+                des2.text = decisiones.sentences[1];
+        }
+        if (decTomadas.pos == 1)
+        {
+            
+                des1.text = decisiones2.sentences[0];
+                des2.text = decisiones2.sentences[1];
+            
+            
+        }
+        if (decTomadas.pos == 2)
+        {
+                des1.text = decisiones3.sentences[0];
+                des2.text = decisiones3.sentences[1];
+            
+        }
         
     }
 

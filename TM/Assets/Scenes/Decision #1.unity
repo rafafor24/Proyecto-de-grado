@@ -1960,6 +1960,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decisiones: {fileID: 11400000, guid: 3dcf7387bdfdb1348ba2ee13a39c9a63, type: 2}
+  decisiones2: {fileID: 11400000, guid: cecef7dff8542d9458b12d30cf161a04, type: 2}
+  decisiones3: {fileID: 11400000, guid: 1e4acff92cb90874f9753041fb0b6a7b, type: 2}
   des1: {fileID: 718952390}
   des2: {fileID: 1505246174}
   countdown: {fileID: 911161217}

@@ -113,27 +113,19 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
             ej.jugar[1] = otroJugar;
 
-            /*if (ej.jugar[0] && ej.jugar[1])
-            {
-                ej.jugar[0] = false;
-                ej.jugar[1] = false;
-                ej.mostrarAviso = false;
-                PhotonNetwork.LoadLevel("Instr. #1");
-                PhotonNetwork.LeaveRoom();
-            }*/
+           
             int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
+            decision.text = dec[posInterna].sentences[coords.decisionId];
             GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[posInterna].sentences[tal];
 
             if (decisionesTomadas.pos == -1)
             {
                 decisionesTomadas.pos++;
-                //Debug.Log("Entra al if inicial");
             }
             if (decisionesTomadas.pos < 3 && !guardado
                 && tal != -1 && coords.decisionId != -1 &&
                 decisionesTomadas.mias[decisionesTomadas.pos] == -1 && decisionesTomadas.otro[decisionesTomadas.pos] == -1)
             {
-                //Debug.Log("Entra a asignar decisiones en el espacio: " + decisionesTomadas.pos);
                 decisionesTomadas.mias[decisionesTomadas.pos] = tal;
                 decisionesTomadas.otro[decisionesTomadas.pos] = coords.decisionId;
                 decisionesTomadas.calcular[decisionesTomadas.pos] = true;
@@ -144,8 +136,6 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     private void OnDestroy()
     {
-        //decisionesTomadas.pos += 1;
-
     }
 
     public void ChangeTrigger(string trigger)

@@ -224,7 +224,7 @@ public class MoverJugador : MonoBehaviour
             PhotonNetwork.LoadLevel("Instr. #2");
             PhotonNetwork.LeaveRoom();
         }
-        else
+        else if (decisionesTomadas.pos == 1)
         {
             PhotonNetwork.LoadLevel("Instr. #3");
             PhotonNetwork.LeaveRoom();
