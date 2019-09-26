@@ -168,8 +168,10 @@ public class MoverJugador : MonoBehaviour
             }
             moving = true;
         }
+
     public void Click()
     {
+        Debug.Log("CLICKKKKK");
         if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
             || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
         {

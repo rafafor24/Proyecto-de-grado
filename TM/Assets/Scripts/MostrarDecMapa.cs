@@ -29,7 +29,11 @@ public class MostrarDecMapa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        miDecision.text = decisionesTexto[lasDecisiones.pos].sentences[misCoords.decisionId];
-        suDecision.text = decisionesTexto[lasDecisiones.pos].sentences[susCoords.decisionId];
+        if (lasDecisiones.pos != -1)
+        {
+            miDecision.text = decisionesTexto[lasDecisiones.pos].sentences[misCoords.decisionId];
+            suDecision.text = decisionesTexto[lasDecisiones.pos].sentences[susCoords.decisionId];
+        }
+        
     }
 }
