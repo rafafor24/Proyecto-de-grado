@@ -14,7 +14,7 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public CoordsPlayer coordsPlayer2;//
 
-    private bool player1 = false;
+    public bool player1 = false;
 
     public int decAct=1;
     private string initialRoomName;
@@ -37,7 +37,7 @@ public class MenuLogic : Photon.MonoBehaviour
     {
         mp= GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
 
-        coordsPlayer1.x = 2;
+        coordsPlayer1.x = 3;
         coordsPlayer1.y = 2;
         coordsPlayer1.estId = -1;
         coordsPlayer1.decisionId = -1;

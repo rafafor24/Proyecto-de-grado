@@ -71,7 +71,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
             }
         }
 
-        if (tiempo.ActualTime <= 0)
+        if (tiempo.ActualTime < 0)
         {
             coordsPlayer.perdio = true;
             StartCoroutine(EsperarCambio());

@@ -43,7 +43,16 @@ public class MoveCharPhoton : Photon.MonoBehaviour
         coords = ml.getCoords();
         coordsOther = ml.GetCoordsOther();
         ej = ml.GetEsperarJugador();
-        transform.position = new Vector3(coords.x * 7, coords.y * 7, 0);
+        if (ml.player1)
+        {
+            transform.position = new Vector3((coords.x * 7)-1, coords.y * 7, 0);
+
+        }
+        else
+        {
+            transform.position = new Vector3((coords.x * 7)+1, coords.y * 7, 0);
+
+        }
     }
 
     private void Awake()

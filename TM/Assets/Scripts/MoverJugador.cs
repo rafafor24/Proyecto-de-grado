@@ -223,7 +223,7 @@ public class MoverJugador : MonoBehaviour
 
     IEnumerator EsperarCambio()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         if (decisionesTomadas.pos==-1)
         {
             PhotonNetwork.LoadLevel("Instr. #1");
