@@ -59,8 +59,11 @@ public class ControlTiempoInterfaz : MonoBehaviour
 
                 int ptj = CambiarTiempos(bDec1, bDec2);
                 int ptj2 = CambiarTiempos(bDec2, bDec1);
+
+                Debug.Log("ptj 1 y 2 "+ptj +" "+ptj2);
+
                 ReduceTimeActualPlayer(ptj);
-                ReduceTimeActualPlayer(ptj2);
+                ReduceTimeActualOther(ptj2);
 
                 decisionesTomadas.calcular[decisionesTomadas.pos] = false;
                 decisionesTomadas.pos++;
