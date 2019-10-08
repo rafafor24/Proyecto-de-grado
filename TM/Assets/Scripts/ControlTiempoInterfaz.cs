@@ -50,7 +50,6 @@ public class ControlTiempoInterfaz : MonoBehaviour
             int dec1 = decisionesTomadas.mias[decisionesTomadas.pos];
             int dec2 = decisionesTomadas.otro[decisionesTomadas.pos];
             bool calc = decisionesTomadas.calcular[decisionesTomadas.pos];
-            //Debug.Log("Entra al if del update dec1: " + dec1 + " dec2: " + dec2 + " calcular=" + calc);
 
 
             if (calc)
@@ -58,32 +57,31 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 bool bDec1 = dec1 == 1;
                 bool bDec2 = dec2 == 1;
 
-                //Debug.Log("dec1 bool: " + bDec1 + " dec2 bool: " + bDec2);
-
                 int ptj = CambiarTiempos(bDec1, bDec2);
-                //Debug.Log("ptj: " + ptj);
-                ReduceTimeActual(ptj);
+                int ptj2 = CambiarTiempos(bDec2, bDec1);
+                ReduceTimeActualPlayer(ptj);
+                ReduceTimeActualPlayer(ptj2);
+
                 decisionesTomadas.calcular[decisionesTomadas.pos] = false;
                 decisionesTomadas.pos++;
             }
         }
 
-        if (tiempo.ActualTime < 0)
+        if (tiempo.ActualTimePlayer < 0)
         {
             coordsPlayer.perdio = true;
             StartCoroutine(EsperarCambio());
         }
         else
         {
-            //Debug.Log("length "+GameObject.FindGameObjectsWithTag("Player").Length);
-            //Debug.Log("pos "+decisionesTomadas.pos);
-            if (coordsOther.perdio && (GameObject.FindGameObjectsWithTag("Player").Length < 2 || coordsPlayer.x == 6 && coordsPlayer.x == 2))
+            if (coordsOther.perdio && (GameObject.FindGameObjectsWithTag("Player").Length < 2 /*|| coordsPlayer.x == 6 && coordsPlayer.x == 2*/))
             {
                 PhotonNetwork.LoadLevel("Ganar");
                 PhotonNetwork.LeaveRoom();
             }
-            else if(coordsPlayer.x == 6 && coordsPlayer.x == 2)
+            else if(coordsPlayer.x == 6 && coordsPlayer.y == 2 && coordsOther.x == 6 && coordsOther.y == 2)
             {
+
                 PhotonNetwork.LoadLevel("Ganar");
                 PhotonNetwork.LeaveRoom();
             }
@@ -106,17 +104,25 @@ public class ControlTiempoInterfaz : MonoBehaviour
 
     public void ChangeTimeActual(int time)
     {
-        tiempo.ActualTime = time;
-        timeActual.SetText(tiempo.ActualTime.ToString());
-        sliderTiempo.value = tiempo.ActualTime;
+        tiempo.ActualTimePlayer = time;
+        tiempo.ActualTimeOther = time;
+        timeActual.SetText(tiempo.ActualTimePlayer.ToString());
+        sliderTiempo.value = tiempo.ActualTimePlayer;
     }
 
-    public void ReduceTimeActual(int time)
+    public void ReduceTimeActualPlayer(int time)
     {
-        tiempo.ActualTime = tiempo.ActualTime - time;
-        timeActual.SetText(tiempo.ActualTime.ToString());
-        sliderTiempo.value = tiempo.ActualTime;
+        tiempo.ActualTimePlayer = tiempo.ActualTimePlayer - time;
+        timeActual.SetText(tiempo.ActualTimePlayer.ToString());
+        sliderTiempo.value = tiempo.ActualTimePlayer;
         
+    }
+
+    public void ReduceTimeActualOther(int time)
+    {
+        tiempo.ActualTimeOther = tiempo.ActualTimeOther - time;
+        //timeActual.SetText(tiempo.ActualTimePlayer.ToString());
+        //sliderTiempo.value = tiempo.ActualTimePlayer;
     }
 
     public int CambiarTiempos(bool des1, bool des2)

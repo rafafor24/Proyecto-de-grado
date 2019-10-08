@@ -67,7 +67,8 @@ public class MenuLogic : Photon.MonoBehaviour
         decisionesTomadas.calcular[2] = false;
 
         tiempo.MaxTime = 15;
-        tiempo.ActualTime = 15;
+        tiempo.ActualTimePlayer = 15;
+        tiempo.ActualTimeOther = 15;
 
         if (GameObject.FindGameObjectsWithTag("MenuLogic").Length == 1)
         {

@@ -6,5 +6,6 @@ using UnityEngine;
 public class Tiempo : ScriptableObject
 {
     public int MaxTime;
-    public int ActualTime;
+    public int ActualTimePlayer;
+    public int ActualTimeOther;
 }
