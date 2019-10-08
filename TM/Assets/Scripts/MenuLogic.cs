@@ -33,6 +33,8 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private TypedLobby lobbyQuick = new TypedLobby("LobbyQuick", LobbyType.Default);
 
+    public int numPlayers =0;
+
     private void Awake()
     {
         mp= GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
@@ -176,6 +178,7 @@ public class MenuLogic : Photon.MonoBehaviour
             //Debug.Log("ConnState:" + PhotonNetwork.connectionState);
             PhotonNetwork.Instantiate(mainPlayer2.name, mainPlayer2.transform.position, mainPlayer2.transform.rotation, 0);
         }
+        numPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
     }
 
     public CoordsPlayer getCoords()
