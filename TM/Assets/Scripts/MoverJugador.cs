@@ -66,12 +66,9 @@ public class MoverJugador : MonoBehaviour
         id = i;
     }
 
-    public void estadoMeta()
+    public void estadoMeta(bool state)
     {
-        Debug.Log("Ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-        meta.transform.localPosition = new Vector3(0.15f, 7.68f, 0);   
-       
-        //meta.SetActive(state);
+        meta.SetActive(state);
     }
 
     // Update is called once per frame

@@ -26,14 +26,12 @@ public class CreateMap : MonoBehaviour
             {
                 GameObject newObject = Instantiate(prefab, new Vector3(i * dist, j * dist, 0), Quaternion.identity);
                 newObject.GetComponentInChildren<TextMeshPro>().text = stations.stationsNames[i];
-                newObject.transform.GetChild(1).transform.position= new Vector3(10000.4f, 10000.4f, 1.4f);
                 MoverJugador moverJugador=newObject.GetComponent<MoverJugador>();
                 moverJugador.setId(idCount++);
 
                 if (i == 6 && j == 2)
                 {
-                    Debug.Log("ES true");
-                    moverJugador.estadoMeta();
+                    moverJugador.estadoMeta(true);
                     moverJugador.metaBool = true;
                 }
                 
