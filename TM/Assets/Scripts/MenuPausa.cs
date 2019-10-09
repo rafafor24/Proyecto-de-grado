@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
     public GameObject menupausa;
-    private bool enable;   
+    private bool enable;
 
+    
     public void switchViewMenu()
     {
         if (enable)
@@ -33,5 +35,26 @@ public class MenuPausa : MonoBehaviour
         {
             switchViewMenu();
         }
+
+       
+            if (Input.GetKeyDown("space"))
+            {
+                Debug.Log(PhotonNetwork.connectionState);
+                Debug.Log(PhotonNetwork.room.Name);
+                Debug.Log(PhotonNetwork.lobby.Name);
+            }
+        
+    }
+
+    public void ClickMenuPrincipal()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LeaveLobby();
+        SceneManager.LoadScene(0);
+    }
+
+    public void ClickSalir()
+    {
+        Application.Quit();
     }
 }

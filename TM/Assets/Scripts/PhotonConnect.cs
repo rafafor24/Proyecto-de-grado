@@ -50,7 +50,6 @@ public class PhotonConnect : MonoBehaviour
         else
         {
             PhotonNetwork.JoinLobby(lobbyAmigos);
-
         }
 
     }

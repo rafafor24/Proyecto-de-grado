@@ -19,16 +19,18 @@ public class ControlEsperandoJugador : MonoBehaviour
             if (numPlayers == 1)
             {
                 cargando.SetActive(false);
-                esperandoJugador.transform.localScale = new Vector3(1, 1, 1);
+                esperandoJugador.SetActive(true);
             }
             else if (numPlayers == 2)
             {
                 cargando.SetActive(false);
-                esperandoJugador.transform.localScale = new Vector3(0, 0, 0);
+                esperandoJugador.SetActive(false);
             }
             else if (numPlayers == 0)
             {
                 cargando.SetActive(true);
+
+                esperandoJugador.SetActive(false);
             }
         }
         else
