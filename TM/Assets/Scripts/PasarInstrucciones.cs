@@ -7,11 +7,16 @@ public class PasarInstrucciones : MonoBehaviour
 {
     public GameObject[] partes;
 
-    public int actual;
+    private int actual;
+
+    private DecisionesTomadas decisiones;
+    private MenuLogic ml;
 
     private void Start()
     {
+        ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         actual = 0;
+        decisiones = ml.GetDecisionesTomadas();
     }
 
     public void siguienteParte()
@@ -47,6 +52,26 @@ public class PasarInstrucciones : MonoBehaviour
             {
                 partes[i].SetActive(false);
             }
+        }
+    }
+
+    public void jugar()
+    {
+        if (decisiones.pos == -1)
+        {
+            PhotonNetwork.LoadLevel("Decision #1");
+        }
+        else if (decisiones.pos == 0)
+        {
+            PhotonNetwork.LoadLevel("Decision #1");
+        }
+        else if (decisiones.pos == 1)
+        {
+            PhotonNetwork.LoadLevel("Decision #2");
+        }
+        else if (decisiones.pos == 2)
+        {
+            PhotonNetwork.LoadLevel("Decision #3");
         }
     }
 }

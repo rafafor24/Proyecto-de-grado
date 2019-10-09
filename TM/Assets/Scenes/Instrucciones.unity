@@ -2753,7 +2753,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1947586429}
-        m_MethodName: alternarParte
+        m_MethodName: jugar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6157,7 +6157,6 @@ MonoBehaviour:
   - {fileID: 1845150865}
   - {fileID: 1352435871}
   - {fileID: 213309031}
-  actual: 0
 --- !u!4 &1947586430
 Transform:
   m_ObjectHideFlags: 0

@@ -84,7 +84,7 @@ public class MoverJugador : MonoBehaviour
             {
                 ej.mostrarAviso = false;
 
-                if (decisionesTomadas.pos == -1)
+                /*if (decisionesTomadas.pos == -1)
                 {
                     PhotonNetwork.LoadLevel("Instr. #1");
                     PhotonNetwork.LeaveRoom();
@@ -103,7 +103,8 @@ public class MoverJugador : MonoBehaviour
                 {
                     PhotonNetwork.LoadLevel("Instr. #3");
                     PhotonNetwork.LeaveRoom();
-                }
+                }*/
+                PhotonNetwork.LoadLevel("Instrucciones");
             }
         }
 
@@ -225,7 +226,7 @@ public class MoverJugador : MonoBehaviour
     IEnumerator EsperarCambio()
     {
         yield return new WaitForSeconds(1);
-        if (decisionesTomadas.pos==-1)
+        /*if (decisionesTomadas.pos==-1)
         {
             PhotonNetwork.LoadLevel("Instr. #1");
             PhotonNetwork.LeaveRoom();
@@ -243,7 +244,7 @@ public class MoverJugador : MonoBehaviour
         {
             PhotonNetwork.LoadLevel("Instr. #3");
             PhotonNetwork.LeaveRoom();
-        }
-
+        }*/
+        PhotonNetwork.LoadLevel("Instrucciones");
     }
 }
