@@ -33,7 +33,6 @@ public class MenuLogic : Photon.MonoBehaviour
 
     private TypedLobby lobbyQuick = new TypedLobby("LobbyQuick", LobbyType.Default);
 
-    
     private void Awake()
     {
         mp= GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
@@ -76,6 +75,11 @@ public class MenuLogic : Photon.MonoBehaviour
             DontDestroyOnLoad(this.transform);
         }
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
+    }
+
+    public void cargarMenuPrincipal()
+    {
+        mp.ClickMenuPrincipal();
     }
 
     public void createNewRoom()

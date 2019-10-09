@@ -9,15 +9,20 @@ public class MenuPrincipal : MonoBehaviour
     public bool quickGame;
 
     public float numPartida;
-    
+
     private void Awake()
     {
-        if (GameObject.FindGameObjectsWithTag("MainMenu").Length==1)
+        //if (GameObject.FindGameObjectsWithTag("MainMenu").Length==1)
         {
             DontDestroyOnLoad(this.transform);
         }
         
-    }    
+    }
+
+    public void ClickMenuPrincipal()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     public void ClickJuego()
     {
