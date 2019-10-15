@@ -33,6 +33,7 @@ public class MoverJugador : MonoBehaviour
     private MenuLogic ml;
 
     private EsperarJugador ej;
+
     private GameObject avisoEsperarJugador;
 
     private DecisionesTomadas decisionesTomadas;
@@ -51,8 +52,8 @@ public class MoverJugador : MonoBehaviour
         ej.jugar[1] = false;
 
         avisoEsperarJugador = GameObject.Find("EsperaJugador");
+
         avisoEsperarJugador.transform.localScale = new Vector3(0, 0, 0);
-        
 
         seleccionado = false;
         moving = false;
@@ -76,7 +77,7 @@ public class MoverJugador : MonoBehaviour
     {
         jugador = GameObject.FindGameObjectWithTag("Player") ? GameObject.FindGameObjectWithTag("Player") : new GameObject();
         avisoEsperarJugador = GameObject.Find("EsperaJugador");
-
+        
 
         if (ej.mostrarAviso)
         {
@@ -177,7 +178,6 @@ public class MoverJugador : MonoBehaviour
 
     public void Click()
     {
-        Debug.Log("CLICKKKKK");
         if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
             || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
         {
@@ -189,13 +189,11 @@ public class MoverJugador : MonoBehaviour
             if (ej.jugar[0] && !ej.jugar[1])
 
             {
-                Debug.Log("click primero" + decisionesTomadas.pos);
                 ej.mostrarAviso = true;
                 avisoEsperarJugador.transform.localScale = new Vector3(1, 1, 1);
             }
             else if (ej.jugar[0] && ej.jugar[1])
             {
-                Debug.Log("click segundo" + decisionesTomadas.pos);
                 ej.mostrarAviso = false;
                 StartCoroutine(EsperarCambio());
             }
