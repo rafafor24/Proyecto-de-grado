@@ -988,7 +988,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Preparate para tomar una decision
+  m_text: "Prep\xE1rate para tomar una decisi\xF3n\r\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dbe0e2d1b0218ec498d68a01f1894e6c, type: 2}
   m_sharedMaterial: {fileID: 7107776355440452025, guid: dbe0e2d1b0218ec498d68a01f1894e6c,
@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 35
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1059,12 +1059,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 768722960}
-    characterCount: 33
+    characterCount: 37
     spriteCount: 0
-    spaceCount: 4
+    spaceCount: 6
     wordCount: 5
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
