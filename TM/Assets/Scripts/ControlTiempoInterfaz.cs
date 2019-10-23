@@ -16,10 +16,12 @@ public class ControlTiempoInterfaz : MonoBehaviour
 
     public DecisionesTomadas decisionesTomadas;
 
+    public GameObject timeReducedObject;
+    public TextMeshProUGUI timeReducedText;
+
     public Puntajes puntajes;
     private MenuLogic ml;
 
-    //True Hizo Fila
 
     private void Start()
     {
@@ -38,7 +40,6 @@ public class ControlTiempoInterfaz : MonoBehaviour
         if (level == 1)
         {
             ChangeMaxTime(15);
-            ActualizarTiempoInterfaz();
         }
     }
 
@@ -60,8 +61,6 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 int ptj = CambiarTiempos(bDec1, bDec2);
                 int ptj2 = CambiarTiempos(bDec2, bDec1);
 
-                Debug.Log("ptj 1 y 2 "+ptj +" "+ptj2);
-
                 ReduceTimeActualPlayer(ptj);
                 ReduceTimeActualOther(ptj2);
 
@@ -77,7 +76,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
         }
         else
         {
-            if (coordsOther.perdio && (GameObject.FindGameObjectsWithTag("Player").Length < 2 /*|| coordsPlayer.x == 6 && coordsPlayer.x == 2*/))
+            if (coordsOther.perdio && (GameObject.FindGameObjectsWithTag("Player").Length < 2))
             {
                 PhotonNetwork.LoadLevel("Ganar");
                 PhotonNetwork.LeaveRoom();
@@ -90,13 +89,6 @@ public class ControlTiempoInterfaz : MonoBehaviour
             }
         }
     }
-
-    private void ActualizarTiempoInterfaz()
-    {
-
-    }
-
-
 
     public void ChangeMaxTime(int time)
     {
@@ -115,17 +107,18 @@ public class ControlTiempoInterfaz : MonoBehaviour
 
     public void ReduceTimeActualPlayer(int time)
     {
+        timeReducedObject.SetActive(true);
+        timeReducedText.SetText("-"+time+" min");
         tiempo.ActualTimePlayer = tiempo.ActualTimePlayer - time;
         timeActual.SetText(tiempo.ActualTimePlayer.ToString());
-        sliderTiempo.value = tiempo.ActualTimePlayer;
-        
+        sliderTiempo.value = tiempo.ActualTimePlayer
+        StartCoroutine(ShowReducedTime());
+
     }
 
     public void ReduceTimeActualOther(int time)
     {
         tiempo.ActualTimeOther = tiempo.ActualTimeOther - time;
-        //timeActual.SetText(tiempo.ActualTimePlayer.ToString());
-        //sliderTiempo.value = tiempo.ActualTimePlayer;
     }
 
     public int CambiarTiempos(bool des1, bool des2)
@@ -157,6 +150,12 @@ public class ControlTiempoInterfaz : MonoBehaviour
         yield return new WaitForSeconds(5);
         PhotonNetwork.LoadLevel("Perder");
         PhotonNetwork.LeaveRoom();
+    }
+
+    IEnumerator ShowReducedTime()
+    {
+        yield return new WaitForSeconds(5);
+        timeReducedObject.SetActive(false);
     }
 
 }
