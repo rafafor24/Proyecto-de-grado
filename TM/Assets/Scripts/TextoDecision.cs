@@ -16,7 +16,7 @@ public class TextoDecision : MonoBehaviour
 
     public GameObject desFinal;
 
-    public int timeLimit = 20;
+    public int timeLimit = 30;
 
     private bool decidido;
 

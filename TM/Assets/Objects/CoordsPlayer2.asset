@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CoordsPlayer2
   m_EditorClassIdentifier: 
   name: 
-  x: 3
+  x: 6
   y: 2
   estId: -1
-  decisionId: -1
-  perdio: 0
+  decisionId: 1
+  perdio: 1

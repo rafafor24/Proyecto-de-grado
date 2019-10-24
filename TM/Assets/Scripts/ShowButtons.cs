@@ -9,6 +9,7 @@ public class ShowButtons : MonoBehaviour
 
     public TextMeshProUGUI countdown;
 
+    public GameObject titulo;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class ShowButtons : MonoBehaviour
         countdown.text = "1";
         yield return new WaitForSeconds(1);
         countdown.gameObject.SetActive(false);
+        titulo.SetActive(false);
         buttons.SetActive(true);
         buttons.GetComponent<TextoDecision>().StartCountDown();
     }
