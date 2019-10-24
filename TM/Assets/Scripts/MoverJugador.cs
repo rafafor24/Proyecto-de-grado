@@ -87,22 +87,22 @@ public class MoverJugador : MonoBehaviour
 
                 if (decisionesTomadas.pos == -1)
                 {
-                    PhotonNetwork.LoadLevel("Instr. #1");
+                    PhotonNetwork.LoadLevel("Decision #1");
                     PhotonNetwork.LeaveRoom();
                 }
                 else if (decisionesTomadas.pos == 0)
                 {
-                    PhotonNetwork.LoadLevel("Instr. #1");
+                    PhotonNetwork.LoadLevel("Decision #1");
                     PhotonNetwork.LeaveRoom();
                 }
                 else if (decisionesTomadas.pos == 1)
                 {
-                    PhotonNetwork.LoadLevel("Instr. #2");
+                    PhotonNetwork.LoadLevel("Decision #2");
                     PhotonNetwork.LeaveRoom();
                 }
                 else if (decisionesTomadas.pos == 2)
                 {
-                    PhotonNetwork.LoadLevel("Instr. #3");
+                    PhotonNetwork.LoadLevel("Decision #3");
                     PhotonNetwork.LeaveRoom();
                 }
             }
@@ -225,21 +225,21 @@ public class MoverJugador : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (decisionesTomadas.pos==-1)
         {
-            PhotonNetwork.LoadLevel("Instr. #1");
+            PhotonNetwork.LoadLevel("Decision #1");
             PhotonNetwork.LeaveRoom();
         } else if (decisionesTomadas.pos == 0)
         {
-            PhotonNetwork.LoadLevel("Instr. #1");
+            PhotonNetwork.LoadLevel("Decision #1");
             PhotonNetwork.LeaveRoom();
         }
         else if (decisionesTomadas.pos == 1)
         {
-            PhotonNetwork.LoadLevel("Instr. #2");
+            PhotonNetwork.LoadLevel("Decision #2");
             PhotonNetwork.LeaveRoom();
         }
         else if (decisionesTomadas.pos == 2)
         {
-            PhotonNetwork.LoadLevel("Instr. #3");
+            PhotonNetwork.LoadLevel("Decision #3");
             PhotonNetwork.LeaveRoom();
         }
 

@@ -82,7 +82,7 @@ public class TextoDecision : MonoBehaviour
         coords.decisionId = 1;
         ml.updateCoords(coords);
         PlayerPrefs.SetInt("decision", 2);
-        gameObject.transform.position = new Vector3(0, -200, 0);
+        gameObject.transform.position = new Vector3(0, -2000, 0);
         desFinal.SetActive(true);
         desFinal.GetComponent<TextMeshProUGUI>().text += decbuena.text;
         StartCoroutine(ShowFinalDes());
