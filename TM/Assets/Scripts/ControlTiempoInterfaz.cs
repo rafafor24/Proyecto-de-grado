@@ -22,16 +22,23 @@ public class ControlTiempoInterfaz : MonoBehaviour
     public Puntajes puntajes;
     private MenuLogic ml;
 
+    public float speed = 500.0f;
+    private bool moving;
+    private float distanceInic;
+    private int minutesReduc;
+
 
     private void Start()
     {
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coordsPlayer = ml.getCoords();
         coordsOther = ml.GetCoordsOther();
+        distanceInic = Vector3.Distance(timeReducedObject.transform.position, timeActual.transform.position);
+        moving = false;
         if (decisionesTomadas.pos == -1)
         {
-            ChangeMaxTime(15);
-            ChangeTimeActual(15);
+            ChangeMaxTime(tiempo.MaxTime);
+            ChangeTimeActual(tiempo.ActualTimePlayer);
         }
     }
 
@@ -39,12 +46,35 @@ public class ControlTiempoInterfaz : MonoBehaviour
     {
         if (level == 1)
         {
-            ChangeMaxTime(15);
+            ChangeMaxTime(tiempo.MaxTime);
+            ChangeTimeActual(tiempo.ActualTimePlayer);
         }
     }
 
     private void Update()
     {
+        if (moving)
+        {
+            float step = speed * Time.deltaTime;
+            float actualScale = Vector3.Distance(timeReducedObject.transform.position, timeActual.transform.position) / distanceInic;
+
+            timeReducedObject.transform.position = Vector3.MoveTowards(timeReducedObject.transform.position, timeActual.transform.position, 5);
+            if(timeReducedObject.transform.localScale.x > 0.2f && timeReducedObject.transform.localScale.y > 0.2f)
+            {
+                timeReducedObject.transform.localScale =  new Vector3(actualScale,actualScale, 1);
+            }
+
+            if (Vector3.Distance(timeReducedObject.transform.position, timeActual.transform.position) < 0.001f)
+            {
+                moving = false;
+                timeReducedObject.SetActive(false);
+                tiempo.ActualTimePlayer = tiempo.ActualTimePlayer - minutesReduc;
+                timeActual.SetText(tiempo.ActualTimePlayer.ToString());
+                sliderTiempo.value = tiempo.ActualTimePlayer;
+                minutesReduc = 0;
+            }
+        }
+
         if (decisionesTomadas.pos > -1 && decisionesTomadas.pos < 3)
         {
 
@@ -86,6 +116,10 @@ public class ControlTiempoInterfaz : MonoBehaviour
 
                 PhotonNetwork.LoadLevel("Ganar");
                 PhotonNetwork.LeaveRoom();
+            }else if (tiempo.ActualTimePlayer==tiempo.ActualTimeOther && decisionesTomadas.pos == 3)
+            {
+                PhotonNetwork.LoadLevel("Ganar");
+                PhotonNetwork.LeaveRoom();
             }
         }
     }
@@ -109,10 +143,8 @@ public class ControlTiempoInterfaz : MonoBehaviour
     {
         timeReducedObject.SetActive(true);
         timeReducedText.SetText("-"+time+" min");
-        tiempo.ActualTimePlayer = tiempo.ActualTimePlayer - time;
-        timeActual.SetText(tiempo.ActualTimePlayer.ToString());
-        sliderTiempo.value = tiempo.ActualTimePlayer
         StartCoroutine(ShowReducedTime());
+        minutesReduc = time;
 
     }
 
@@ -154,8 +186,8 @@ public class ControlTiempoInterfaz : MonoBehaviour
 
     IEnumerator ShowReducedTime()
     {
-        yield return new WaitForSeconds(5);
-        timeReducedObject.SetActive(false);
+        yield return new WaitForSeconds(3);
+        moving = true;
     }
 
 }
