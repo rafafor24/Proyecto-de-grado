@@ -15,24 +15,24 @@ MonoBehaviour:
   x: 7
   y: 3
   stationsNames:
+  - X
+  - X
   - Portal Norte
-  - W
-  - E
-  - R
-  - T
-  - Y
-  - U
-  - I
-  - O
-  - O
-  - O
-  - O
-  - O
-  - O
-  - O
-  - O
-  - O
-  - O
-  - O
-  - O
-  - O
+  - X
+  - X
+  - "Alcal\xE1"
+  - X
+  - X
+  - Heroes
+  - X
+  - X
+  - Calle 57
+  - X
+  - X
+  - Av. 39
+  - X
+  - X
+  - Calle 26
+  - X
+  - X
+  - Universidades

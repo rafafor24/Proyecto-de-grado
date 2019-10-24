@@ -25,6 +25,10 @@ public class PasarInstrucciones : MonoBehaviour
         ant.SetActive(false);
         parte1.SetActive(true);
         parte2.SetActive(false);
-    }     
-    
+    }
+
+    public void disable()
+    {
+        transform.parent.gameObject.SetActive(false);
+    }
 }

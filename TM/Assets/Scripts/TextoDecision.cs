@@ -16,7 +16,7 @@ public class TextoDecision : MonoBehaviour
 
     public GameObject desFinal;
 
-    public int timeLimit = 30;
+    private int timeLimit = 30;
 
     private bool decidido;
 
@@ -82,7 +82,8 @@ public class TextoDecision : MonoBehaviour
         coords.decisionId = 1;
         ml.updateCoords(coords);
         PlayerPrefs.SetInt("decision", 2);
-        gameObject.transform.position = new Vector3(0, -2000, 0);
+        //gameObject.transform.position = new Vector3(0, -2000, 0);
+        gameObject.SetActive(false);
         desFinal.SetActive(true);
         desFinal.GetComponent<TextMeshProUGUI>().text += decbuena.text;
         StartCoroutine(ShowFinalDes());

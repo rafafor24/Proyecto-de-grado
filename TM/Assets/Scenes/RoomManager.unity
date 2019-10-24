@@ -876,6 +876,7 @@ MonoBehaviour:
     type: 3}
   coordsPlayer1: {fileID: 11400000, guid: 62649e810d6d0f0449fa74056730ac1e, type: 2}
   coordsPlayer2: {fileID: 11400000, guid: f4109fef2520a844da39d8967333f580, type: 2}
+  player1: 0
   decAct: 1
   decisionesTomadas: {fileID: 11400000, guid: a45c15813f37c3f4798f82bd611bc138, type: 2}
   tiempo: {fileID: 11400000, guid: f6aea03cdbf74f84aba0e0bcd6ff4752, type: 2}
@@ -1296,8 +1297,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.700012, y: 6.5}
-  m_SizeDelta: {x: 255, y: 129.07}
+  m_AnchoredPosition: {x: 1.8, y: 1.9}
+  m_SizeDelta: {x: 298.5, y: 170.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832352458
 MonoBehaviour:

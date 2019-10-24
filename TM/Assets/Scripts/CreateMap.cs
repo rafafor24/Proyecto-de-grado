@@ -25,7 +25,7 @@ public class CreateMap : MonoBehaviour
             for (int j = 0; j < stations.y; j++)
             {
                 GameObject newObject = Instantiate(prefab, new Vector3(i * dist, j * dist, 0), Quaternion.identity);
-                newObject.GetComponentInChildren<TextMeshPro>().text = stations.stationsNames[i];
+                newObject.GetComponentInChildren<TextMeshPro>().text = stations.stationsNames[idCount];
                 MoverJugador moverJugador=newObject.GetComponent<MoverJugador>();
                 moverJugador.setId(idCount++);
 
