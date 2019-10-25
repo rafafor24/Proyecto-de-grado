@@ -103,6 +103,18 @@ public class ControlTiempoInterfaz : MonoBehaviour
         {
             coordsPlayer.perdio = true;
             StartCoroutine(EsperarCambio());
+        }else if (tiempo.ActualTimePlayer == 0)
+        {
+            if (coordsPlayer.x == 6 && coordsPlayer.y == 2)
+            {
+                PhotonNetwork.LoadLevel("Ganar");
+                PhotonNetwork.LeaveRoom();
+            }
+            else
+            {
+                coordsPlayer.perdio = true;
+                StartCoroutine(EsperarCambio());
+            }
         }
         else
         {
