@@ -16,8 +16,8 @@ MonoBehaviour:
   sentences:
   - "Para este minijuego, imagina que te encuentras haciendo la fila para entrar a
     la estaci\xF3n de transmilenio."
-  - El juego consiste en tomar diferentes decisiones que pueden afectarte o favorecerte
-    dependiendo de lo que escojas y lo que decida otro jugador.
+  - Las diferentes decisiones pueden afectarte o favorecerte dependiendo de lo que
+    escoja cada jugador.
   - 'Tienes 2 opciones: Colarse o Hacer la fila. El otro jugador tiene las mismas
     opciones.'
   - "Si un jugador elige Colarse y el otro jugador decide Hacer la fila, el que se

@@ -16,8 +16,8 @@ MonoBehaviour:
   sentences:
   - "Para este minijuego, imagina que te encuentras en la estaci\xF3n esperando y
     ves que un ladr\xF3n le saca el celular del bolsillo a otra persona que esta esperando"
-  - El juego consiste en que tomes diferentes decisiones, dichas desiciones pueden
-    afectarte o favorecerte dependiendo de lo que escojas y lo que decida otro jugador
+  - Las diferentes decisiones pueden afectarte o favorecerte dependiendo de lo que
+    escoja cada jugador.
   - "Tienes 2 opciones: alertar a la persona que est\xE1 siendo robada o no intervenir.
     El otro jugador tiene las mismas opciones."
   - "Si no intervienes y el otro jugador alerta la situaci\xF3n solo tardaras 1 minuto

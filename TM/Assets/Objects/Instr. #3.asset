@@ -16,8 +16,8 @@ MonoBehaviour:
   sentences:
   - "Para este minijuego, imagina que te encuentras en la estaci\xF3n de transmilenio
     y ves que una se\xF1ora de la tercera edad se cae."
-  - El juego consiste en que tomes diferentes decisiones, dichas desiciones pueden
-    afectarte o favorecerte dependiendo de lo que escojas y lo que decida otro jugador
+  - Las diferentes decisiones pueden afectarte o favorecerte dependiendo de lo que
+    escoja cada jugador.
   - "Tienes 2 opciones: ayudar o no ayudar a la se\xF1ora. El otro jugador tiene las
     mismas opciones."
   - "Si no ayudas y el otro jugador si ayuda a la se\xF1ora solo tardaras 1 minuto
