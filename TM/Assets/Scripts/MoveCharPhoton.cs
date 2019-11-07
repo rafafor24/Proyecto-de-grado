@@ -87,9 +87,9 @@ public class MoveCharPhoton : Photon.MonoBehaviour
 
     private void checkInput()
     {
-        var move = new Vector3(Input.GetAxis("Horizontal"), 0);
-        transform.position += move * moveSpeed * Time.deltaTime;
-        int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
+        //var move = new Vector3(Input.GetAxis("Horizontal"), 0);
+        //transform.position += move * moveSpeed * Time.deltaTime;
+        //int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
         if (coords.decisionId != -1)
         {
            // decision.text = dec[posInterna].sentences[coords.decisionId];//ml.decAct-1
