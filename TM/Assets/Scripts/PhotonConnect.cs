@@ -17,10 +17,10 @@ public class PhotonConnect : MonoBehaviour
     private void Awake()
     {
         mp = GameObject.Find("MainMenuDontDestroy").GetComponent<MenuPrincipal>();
-        Debug.Log(PhotonNetwork.connectionState.ToString());
+
         if (PhotonNetwork.connectionState.ToString().Equals("Disconnected"))
         {
-            Debug.Log("Entraif");
+
             PhotonNetwork.ConnectUsingSettings(versionName);
         }
         else
@@ -40,7 +40,7 @@ public class PhotonConnect : MonoBehaviour
 
         //Debug.Log("Conectandose a photon");
     }
-
+    
     private void OnConnectedToMaster()
     {
         if (mp.quickGame)
@@ -54,7 +54,7 @@ public class PhotonConnect : MonoBehaviour
 
         }
 
-        Debug.Log("Coneccion a Master!");
+
 
     }
 
@@ -73,7 +73,7 @@ public class PhotonConnect : MonoBehaviour
             exito.SetActive(true);
         }        
 
-        Debug.Log("On Joined Lobby");
+
     }
     private void OnDisconnectedFromPhoton()
     {

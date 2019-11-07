@@ -126,7 +126,7 @@ public class MenuLogic : Photon.MonoBehaviour
     public void joinOrCreateRoomQuick()
     {
         player1 = false;
-        Debug.Log("joinOrCreateRoomQuick");
+
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         PhotonNetwork.JoinRandomRoom();
@@ -167,13 +167,12 @@ public class MenuLogic : Photon.MonoBehaviour
     {
         if (player1)
         {
-            Debug.Log("PrefabManPhoton");
             //Debug.Log("ConnState:"+PhotonNetwork.connectionState);
             PhotonNetwork.Instantiate(mainPlayer.name, mainPlayer.transform.position, mainPlayer.transform.rotation, 0);
         }
         else
         {
-            Debug.Log("PrefabKnightPhoton");
+
             //Debug.Log("ConnState:" + PhotonNetwork.connectionState);
             PhotonNetwork.Instantiate(mainPlayer2.name, mainPlayer2.transform.position, mainPlayer2.transform.rotation, 0);
         }
