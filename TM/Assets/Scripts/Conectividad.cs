@@ -25,6 +25,8 @@ public class Conectividad : MonoBehaviour
     void Update()
     {
         Debug.Log("Room name: " + PhotonNetwork.room.Name);
+        Debug.Log("Room #: " + PhotonNetwork.room.PlayerCount);
+
         Debug.Log("Lobby name: " + PhotonNetwork.lobby.Name);
         /*MenuLogic ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         if (PhotonNetwork.connected)
