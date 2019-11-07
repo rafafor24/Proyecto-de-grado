@@ -24,6 +24,8 @@ public class Conectividad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Room name: " + PhotonNetwork.room.Name);
+        Debug.Log("Lobby name: " + PhotonNetwork.lobby.Name);
         /*MenuLogic ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         if (PhotonNetwork.connected)
         {
