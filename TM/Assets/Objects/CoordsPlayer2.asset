@@ -16,5 +16,5 @@ MonoBehaviour:
   x: 6
   y: 2
   estId: -1
-  decisionId: 1
-  perdio: 0
+  decisionId: 0
+  perdio: 1

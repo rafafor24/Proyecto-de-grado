@@ -20,8 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ganar.unity
     guid: ae8a47a6447c784478ef987f296bcdfa
-  - enabled: 1
-    path: Assets/Scenes/Perder.unity
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/7a10b5cbe5b68a24ea1fd405d5e4bfda
     guid: 7a10b5cbe5b68a24ea1fd405d5e4bfda
   - enabled: 1
     path: 'Assets/Scenes/Decision #2.unity'
@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: 'Assets/Scenes/Decision #3.unity'
     guid: 5880dedd846ff034b8399f5f6c174a97
+  - enabled: 1
+    path: Assets/Scenes/Perder.unity
+    guid: 5800992e8ab43a6488f0e34bf80ee95c
   m_configObjects: {}

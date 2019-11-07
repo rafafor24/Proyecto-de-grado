@@ -8,6 +8,8 @@ public class ControlEsperandoJugador : MonoBehaviour
     public GameObject esperandoJugador;
 
     public GameObject cargando;
+
+    public GameObject sinConexion;
     
     public int numPlayers = 0;
 
@@ -33,6 +35,13 @@ public class ControlEsperandoJugador : MonoBehaviour
             else if (numPlayers == 0)
             {
                 cargando.SetActive(true);
+            }
+            
+            if (PhotonNetwork.connectionState.ToString().Equals("Disconnected"))
+            {
+                cargando.SetActive(false);
+                esperandoJugador.SetActive(false);
+                sinConexion.SetActive(true);
             }
         }
         else
