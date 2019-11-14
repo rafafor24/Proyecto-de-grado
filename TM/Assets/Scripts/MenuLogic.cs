@@ -16,6 +16,9 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public bool player1 = false;
 
+    //Esta variable la modifican controlTiempoInterfaz y MoverJugador
+    public bool allowClick;
+
     public int decAct=1;
     private string initialRoomName;
 
@@ -69,6 +72,8 @@ public class MenuLogic : Photon.MonoBehaviour
         tiempo.MaxTime = 15;
         tiempo.ActualTimePlayer = 15;
         tiempo.ActualTimeOther = 15;
+
+        allowClick = true;
 
         if (GameObject.FindGameObjectsWithTag("MenuLogic").Length == 1)
         {

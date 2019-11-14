@@ -178,12 +178,13 @@ public class MoverJugador : MonoBehaviour
 
     public void Click()
     {
-        if ((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
-            || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1)))))
+        if (((coords.x == stationId.idX && ((coords.y == (stationId.idY + 1)) || (coords.y == (stationId.idY - 1))))
+            || (coords.y == stationId.idY && ((coords.x == (stationId.idX + 1)) || (coords.x == (stationId.idX - 1))))) && ml.allowClick)
         {
 
             seleccionado = true;
             ej.jugar[0] = true;
+            ml.allowClick = false;
                         
 
             if (ej.jugar[0] && !ej.jugar[1])

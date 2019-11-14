@@ -71,6 +71,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 tiempo.ActualTimePlayer = tiempo.ActualTimePlayer - minutesReduc;
                 timeActual.SetText(tiempo.ActualTimePlayer.ToString());
                 sliderTiempo.value = tiempo.ActualTimePlayer;
+                ml.allowClick = true;
                 minutesReduc = 0;
             }
         }
