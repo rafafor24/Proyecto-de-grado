@@ -110,7 +110,7 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             stream.SendNext(coords.decisionId);
             stream.SendNext(ej.jugar[0]);
             stream.SendNext(coords.perdio);
-
+            stream.SendNext(ml.getReduceTimeProbPlayer());
         }
         else
         {
@@ -119,14 +119,10 @@ public class MoveCharPhoton : Photon.MonoBehaviour
             bool otroJugar = (bool)stream.ReceiveNext();
             bool perdioOtro = (bool)stream.ReceiveNext();
             coordsOther.perdio = perdioOtro;
+            bool reduce = (bool)stream.ReceiveNext();
+            ml.setRedudeTimeProbOther(reduce);
 
-            Debug.Log("Entra ametodophotonnnnnnn");
             ej.jugar[1] = otroJugar;
-
-           
-            //int posInterna = decisionesTomadas.pos == -1 ? 0 : decisionesTomadas.pos;
-            //decision.text = dec[posInterna].sentences[coords.decisionId];
-            //GameObject.Find("DecisionOtro").GetComponent<TextMeshProUGUI>().text = dec[posInterna].sentences[tal];
 
             if (decisionesTomadas.pos == -1)
             {

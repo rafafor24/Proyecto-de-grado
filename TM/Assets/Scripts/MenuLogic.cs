@@ -32,6 +32,12 @@ public class MenuLogic : Photon.MonoBehaviour
 
     public GameObject roomExiste;
 
+    private float probRuleta;
+
+    private bool reduceTimeProbPlayer;
+
+    private bool reduceTimeProbOther;
+
     private TypedLobby lobbyAmigos = new TypedLobby("LobbyAmigos", LobbyType.Default);
 
     private TypedLobby lobbyQuick = new TypedLobby("LobbyQuick", LobbyType.Default);
@@ -72,6 +78,10 @@ public class MenuLogic : Photon.MonoBehaviour
         tiempo.MaxTime = 15;
         tiempo.ActualTimePlayer = 15;
         tiempo.ActualTimeOther = 15;
+
+        probRuleta = 0.1f;
+        reduceTimeProbPlayer = false;
+        reduceTimeProbOther = false;
 
         allowClick = true;
 
@@ -225,5 +235,35 @@ public class MenuLogic : Photon.MonoBehaviour
     public DecisionesTomadas GetDecisionesTomadas()
     {
         return decisionesTomadas;
+    }
+
+    public float getProbRuleta()
+    {
+        return probRuleta;
+    }
+
+    public void setProbRuleta(float pProb)
+    {
+        probRuleta = pProb;
+    }
+
+    public bool getReduceTimeProbPlayer()
+    {
+        return reduceTimeProbPlayer;
+    }
+
+    public void setRedudeTimeProbPlayer(bool pBool)
+    {
+        reduceTimeProbPlayer = pBool;
+    }
+
+    public bool getReduceTimeProbOther()
+    {
+        return reduceTimeProbOther;
+    }
+
+    public void setRedudeTimeProbOther(bool pBool)
+    {
+        reduceTimeProbOther = pBool;
     }
 }

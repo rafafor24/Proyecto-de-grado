@@ -23,9 +23,12 @@ public class ControlTiempoInterfaz : MonoBehaviour
     private MenuLogic ml;
 
     public float speed = 500.0f;
+    public float probabilidad;
     private bool moving;
     private float distanceInic;
     private int minutesReduc;
+    private bool reducedOther;
+
 
 
     private void Start()
@@ -33,6 +36,8 @@ public class ControlTiempoInterfaz : MonoBehaviour
         ml = GameObject.Find("PhotonDontDestroy").GetComponent<MenuLogic>();
         coordsPlayer = ml.getCoords();
         coordsOther = ml.GetCoordsOther();
+        probabilidad = ml.getProbRuleta();
+        reducedOther = false;
         distanceInic = Vector3.Distance(timeReducedObject.transform.position, timeActual.transform.position);
         moving = false;
         if (decisionesTomadas.pos == -1)
@@ -48,6 +53,7 @@ public class ControlTiempoInterfaz : MonoBehaviour
         {
             ChangeMaxTime(tiempo.MaxTime);
             ChangeTimeActual(tiempo.ActualTimePlayer);
+            reducedOther = false;
         }
     }
 
@@ -89,8 +95,24 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 bool bDec1 = dec1 == 1;
                 bool bDec2 = dec2 == 1;
 
+
+
                 int ptj = CambiarTiempos(bDec1, bDec2);
                 int ptj2 = CambiarTiempos(bDec2, bDec1);
+
+                //lógica de la probabilidad
+                Debug.Log("Decision1: "+dec1);
+                Debug.Log("Decision2: " + dec2);
+                if (!bDec1)
+                {
+                    ml.setProbRuleta(probabilidad += 0.2f);
+                    float x = 0.2f;//Random.Range(0f,1f);
+                    if (x<=probabilidad)
+                    {
+                        ptj = 10;// suponiendo que resta 10
+                        ml.setRedudeTimeProbPlayer(true);//falta un bool para avisar al contrincante
+                    }
+                }
 
                 ReduceTimeActualPlayer(ptj);
                 ReduceTimeActualOther(ptj2);
@@ -98,6 +120,21 @@ public class ControlTiempoInterfaz : MonoBehaviour
                 decisionesTomadas.calcular[decisionesTomadas.pos] = false;
                 decisionesTomadas.pos++;
             }
+        }
+
+        if (ml.getReduceTimeProbOther() && !reducedOther)
+        {
+            Debug.Log("Tiempo inic:"+tiempo.ActualTimeOther);
+            if (decisionesTomadas.mias[decisionesTomadas.pos-1]==0)
+            {
+                ReduceTimeActualOther(4);
+            }else if (decisionesTomadas.mias[decisionesTomadas.pos - 1] == 1)
+            {
+                ReduceTimeActualOther(9);
+            }
+            ml.setRedudeTimeProbOther(false);
+            Debug.Log("Tiempo fin:" + tiempo.ActualTimeOther);
+            reducedOther = true;
         }
 
         if (tiempo.ActualTimePlayer < 0)
